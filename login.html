@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Access – Stackly Kensington Residences</title>
+  <meta name="description" content="Secure portal access for Stackly Kensington residents, accredited private investors, and estate managers.">
+  <link rel="icon" type="image/webp" href="assets/images/stackly-logo-light.webp">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="auth-page-wrapper">
+
+  <div class="auth-split-layout">
+    <!-- Visual Side Panel -->
+    <div class="auth-visual-panel">
+      <div class="auth-visual-content">
+        <a href="index.html">
+          <img src="assets/images/stackly-logo-light.webp" alt="Stackly Logo" style="max-width:180px;">
+        </a>
+      </div>
+
+      <div class="auth-quote-box">
+        <blockquote>"Architecture should speak of its time and place, but yearn for timelessness."</blockquote>
+        <div class="auth-quote-author">KENSINGTON PRIVATE RESIDENCES • ESTATE ACCESS</div>
+      </div>
+
+      <div style="font-size:0.75rem; color:#888; letter-spacing:0.1em;">
+        © 2026 STACKLY PROPERTY GROUP. STRICTLY CONFIDENTIAL.
+      </div>
+    </div>
+
+    <!-- Auth Form Panel -->
+    <div class="auth-form-panel">
+      <div class="auth-card">
+        <a href="index.html" class="auth-back-home" title="Return to Kensington Homepage">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back To Home</span>
+        </a>
+
+        <div class="auth-card-header">
+          <a href="index.html">
+            <img src="assets/images/stackly-logo-light.webp" alt="Stackly" class="auth-card-logo">
+          </a>
+          <h2>Private Portal Access</h2>
+          <p>Please enter your credentials to access your private residence dossier or administrative suite.</p>
+        </div>
+
+        <!-- Portal Role Selector Tabs -->
+        <div class="auth-tabs">
+          <button type="button" class="auth-tab-btn active" id="tab-client" onclick="selectRole('client')">CLIENT PORTAL</button>
+          <button type="button" class="auth-tab-btn" id="tab-admin" onclick="selectRole('admin')">ADMIN CONSOLE</button>
+        </div>
+
+        <form id="auth-login-form" novalidate autocomplete="off">
+          <div class="form-group">
+            <label for="login-email">Registered Email</label>
+            <input type="email" id="login-email" class="form-control" placeholder="client@residence.com" autocomplete="off" value="">
+          </div>
+
+          <div class="form-group">
+            <label for="login-password">Access Cipher / Password</label>
+            <input type="password" id="login-password" class="form-control" placeholder="Enter your access cipher" autocomplete="new-password" value="">
+          </div>
+
+          <div class="auth-extra-links">
+            <label class="form-check">
+              <input type="checkbox" checked>
+              <span>Remember Device</span>
+            </label>
+            <a href="#" onclick="showToast('Password recovery instructions dispatched.'); return false;">Forgot Cipher?</a>
+          </div>
+
+          <button type="submit" class="btn-solid-copper" style="width:100%;" id="btn-login-submit">ENTER SECURE PORTAL</button>
+        </form>
+
+        <!-- Private Concierge & Security Notice -->
+        <div class="auth-security-box">
+          <div class="auth-security-header">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span>256-Bit Encrypted Estate Access</span>
+          </div>
+          <p>Confidential portal for verified residents and administrators. For security clearance or concierge assistance, contact <a href="mailto:info@stackly.com">info@stackly.com</a> or <a href="tel:+919090909090">+91 90909 09090</a>.</p>
+        </div>
+
+        <div style="margin-top:2.5rem; text-align:center; font-size:0.85rem; color:#888;">
+          New prospective investor? <a href="signup.html" style="color:var(--color-primary); text-decoration:underline;">Apply for Private Registry</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    let currentRole = 'client';
+
+    function selectRole(role) {
+      currentRole = role;
+      document.getElementById('tab-client').classList.toggle('active', role === 'client');
+      document.getElementById('tab-admin').classList.toggle('active', role === 'admin');
+      
+      const emailInput = document.getElementById('login-email');
+      if (emailInput) {
+        emailInput.placeholder = (role === 'admin') ? 'admin@stackly-properties.com' : 'client@residence.com';
+      }
+    }
+
+    // Clear any autofilled values on initial page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const emailInput = document.getElementById('login-email');
+      const passInput = document.getElementById('login-password');
+      if (emailInput) emailInput.value = '';
+      if (passInput) passInput.value = '';
+
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('registered') || urlParams.get('signup') === 'success') {
+        showToast('Registration successful! Please sign in with your credentials.');
+      }
+    });
+
+    const loginForm = document.getElementById('auth-login-form');
+    loginForm.noValidate = true;
+
+    ['login-email', 'login-password'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', () => {
+          el.classList.remove('is-invalid');
+          const group = el.closest('.form-group');
+          if (group) group.classList.remove('has-error');
+          const err = group ? group.querySelector('.field-error-msg') : null;
+          if (err) err.style.display = 'none';
+        });
+      }
+    });
+
+    function showLoginError(field, message) {
+      field.classList.add('is-invalid');
+      const group = field.closest('.form-group');
+      if (group) group.classList.add('has-error');
+      let err = group ? group.querySelector('.field-error-msg') : null;
+      if (!err) {
+        err = document.createElement('span');
+        err.className = 'field-error-msg';
+        group.appendChild(err);
+      }
+      err.innerHTML = `
+        <span class="field-error-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </span>
+        <span class="field-error-text">${message}</span>
+      `;
+      err.style.display = 'inline-flex';
+
+      field.classList.remove('field-shaking');
+      void field.offsetWidth;
+      field.classList.add('field-shaking');
+    }
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
+      let firstInvalid = null;
+
+      const email = document.getElementById('login-email');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.value.trim() || !emailRegex.test(email.value.trim())) {
+        showLoginError(email, 'Please provide a valid registered email address.');
+        isValid = false;
+        if (!firstInvalid) firstInvalid = email;
+      }
+
+      const pass = document.getElementById('login-password');
+      if (!pass.value || pass.value.length < 6) {
+        showLoginError(pass, 'Please enter your access cipher (minimum 6 characters).');
+        isValid = false;
+        if (!firstInvalid) firstInvalid = pass;
+      }
+
+      if (!isValid) {
+        if (firstInvalid) firstInvalid.focus();
+        showToast('Please verify your credentials.');
+        return;
+      }
+
+      // Save entered credentials so both dashboards can display them dynamically
+      const authUser = {
+        email: email.value.trim(),
+        password: pass.value,
+        role: currentRole,
+        loginTime: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+      try {
+        localStorage.setItem('stackly_auth_user', JSON.stringify(authUser));
+        sessionStorage.setItem('stackly_auth_user', JSON.stringify(authUser));
+      } catch (err) {
+        console.warn('Storage error', err);
+      }
+
+      const btn = document.getElementById('btn-login-submit');
+      btn.textContent = 'AUTHENTICATING ENCRYPTED CIPHER...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        if (currentRole === 'admin') {
+          window.location.href = 'admin-dashboard.html';
+        } else {
+          window.location.href = 'customer-dashboard.html';
+        }
+      }, 700);
+    });
+  </script>
+</body>
+</html>

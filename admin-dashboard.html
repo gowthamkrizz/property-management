@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Executive Console - Kensington Properties</title>
+  <link rel="icon" type="image/webp" href="assets/images/stackly-logo-light.webp">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div class="dash-sidebar-overlay" id="dash-sidebar-overlay"></div>
+
+  <!-- ==========================================================================
+       SIDEBAR NAVIGATION (FIXED ON DESKTOP & MOBILE DRAWER)
+       ========================================================================== -->
+  <aside class="dash-sidebar">
+    <!-- Brand Header with High-Visibility Stackly Logo & Mobile Close Button -->
+    <div class="dash-sidebar-header">
+      <a href="index.html" class="dash-sidebar-logo-link" aria-label="Stackly Home">
+        <img src="assets/images/stackly-logo-light.webp" alt="Stackly Admin Console" class="dash-sidebar-logo">
+      </a>
+      <button type="button" class="dash-sidebar-close" id="dash-sidebar-close" aria-label="Close Sidebar Navigation">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Scrollable Navigation Content (Smooth Separate Page Views) -->
+    <div class="dash-sidebar-scroll">
+      <nav class="dash-nav-group">
+        <div class="dash-nav-title">
+          <span>PORTFOLIO MGMT</span>
+          <span class="dash-group-badge">ADMIN</span>
+        </div>
+        <a href="#dashboard" class="dash-nav-item active" data-view="view-dashboard">
+          <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="#listings" class="dash-nav-item" data-view="view-listings">
+          <svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 4.5l5 4.5H7l5-4.5z"/></svg>
+          <span>Listings (24)</span>
+        </a>
+        <a href="#inquiries" class="dash-nav-item" data-view="view-inquiries">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>VIP Inquiries</span>
+        </a>
+        <a href="#tours" class="dash-nav-item" data-view="view-tours">
+          <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+          <span>Private Tours</span>
+        </a>
+        <a href="#escrow" class="dash-nav-item" data-view="view-escrow">
+          <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+          <span>Escrow & Settlements</span>
+        </a>
+        <a href="#clients" class="dash-nav-item" data-view="view-clients">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          <span>Investor Dossiers</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Pinned User Profile Footer -->
+    <div class="dash-sidebar-footer">
+      <div class="user-profile-summary">
+        <img src="assets/images/team-architect-1.webp" alt="Admin Master" class="user-avatar">
+        <div class="user-meta">
+          <h6 id="admin-user-name">Julian Vance</h6>
+          <span id="admin-user-email" style="display:block; font-size:0.72rem; color:#bbb; word-break:break-all;">admin@stackly-properties.com</span>
+        </div>
+      </div>
+      <a href="login.html" title="Sign Out" class="dash-signout-btn" aria-label="Sign Out">⏻</a>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================== -->
+  <main class="dash-main">
+    <!-- Topbar (Fixed at top while scrolling) -->
+    <header class="dash-topbar">
+      <div class="dash-topbar-left">
+        <button type="button" class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Open Navigation Menu">☰</button>
+        <span class="topbar-portal-badge">EXECUTIVE MANAGEMENT • ADMIN CONSOLE</span>
+      </div>
+
+      <div class="dash-topbar-right">
+        <!-- Profile Area (Entered Name & Mail ID Only) -->
+        <div class="topbar-user-profile-badge">
+          <div class="user-status-dot"></div>
+          <div class="topbar-user-details">
+            <span class="topbar-user-name" id="topbar-admin-name">Julian Vance</span>
+            <span class="topbar-user-email" id="topbar-admin-email">admin@stackly-properties.com</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Body Content with 6 Standalone Smooth Page Views -->
+    <div class="dash-content">
+
+      <!-- ====================================================================
+           VIEW 1: DASHBOARD OVERVIEW
+           ==================================================================== -->
+      <div class="dash-page-view active" id="view-dashboard">
+        <div class="dash-header-title">
+          <div>
+            <span class="section-subtitle">EXECUTIVE MANAGEMENT</span>
+            <h1>Kensington Portfolio Overview</h1>
+            <p>Real-time telemetry on active property valuations, private inquiries, and viewing agendas.</p>
+          </div>
+          <div>
+            <span style="font-size:0.75rem; letter-spacing:0.2em; color:var(--color-primary); background:rgba(194,133,98,0.1); padding:0.5rem 1rem; border:1px solid rgba(194,133,98,0.2);">
+              LIVE SERVER: Q4 2026 AUDIT OK
+            </span>
+          </div>
+        </div>
+
+        <!-- Authenticated Admin Credentials Dossier Card -->
+        <div class="dash-card credential-card" style="border:1px solid rgba(194, 133, 98, 0.4); background: linear-gradient(135deg, #1a1a1a 0%, #141414 100%); margin-bottom:2rem; box-shadow:0 8px 24px rgba(0,0,0,0.35);">
+          <div class="dash-card-header" style="border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:1rem; margin-bottom:1.2rem;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="width:36px; height:36px; border-radius:50%; background:rgba(194,133,98,0.15); border:1px solid var(--color-primary); display:flex; align-items:center; justify-content:center; color:var(--color-primary);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div>
+                <h3 style="margin:0; font-size:1.15rem; color:#ffffff;">Active Administrator Credentials</h3>
+                <p style="color:#888; font-size:0.8rem; margin:2px 0 0 0;">Authenticated executive telemetry for active administrative session.</p>
+              </div>
+            </div>
+            <span class="status-badge active" style="background:rgba(74,222,128,0.15); color:#4ade80; border:1px solid rgba(74,222,128,0.3); font-size:0.75rem; letter-spacing:0.1em; padding:4px 10px;">AUTHENTICATED</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:1.5rem; background:rgba(0,0,0,0.25); padding:1.2rem; border-radius:4px; border:1px solid rgba(255,255,255,0.05);">
+            <!-- Email ID -->
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <span style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-primary); font-weight:600;">ENTERED ADMINISTRATOR EMAIL</span>
+              <div style="display:flex; align-items:center; gap:8px; background:#222; padding:10px 14px; border:1px solid rgba(255,255,255,0.1); border-radius:2px;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <strong id="display-admin-email" style="color:#ffffff; font-size:0.95rem; font-family:monospace; word-break:break-all;">admin@stackly-properties.com</strong>
+              </div>
+            </div>
+
+            <!-- Password / Cipher -->
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <span style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-primary); font-weight:600;">ENTERED ACCESS CIPHER / PASSWORD</span>
+              <div style="display:flex; align-items:center; justify-content:space-between; background:#222; padding:10px 14px; border:1px solid rgba(255,255,255,0.1); border-radius:2px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  <span id="display-admin-password" style="color:#ffffff; font-size:0.95rem; font-family:monospace; letter-spacing:0.1em;">AdminCipher2026!</span>
+                </div>
+                <button type="button" id="toggle-admin-pass-btn" class="btn-table-action" style="padding:2px 8px; font-size:0.7rem; cursor:pointer;" title="Toggle Password Visibility">
+                  Hide
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Stats Cards -->
+        <div class="dash-stats-grid">
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">PORTFOLIO VALUATION</span>
+              <span class="stat-trend">↑ +14.2%</span>
+            </div>
+            <div class="stat-card-value">£148.5M</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">ACTIVE LISTINGS</span>
+              <span class="stat-trend" style="color:#facc15;">24 Units</span>
+            </div>
+            <div class="stat-card-value">24</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">VIP PROSPECTS</span>
+              <span class="stat-trend">↑ +28%</span>
+            </div>
+            <div class="stat-card-value">1,842</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">SCHEDULED TOURS</span>
+              <span class="stat-trend">48 Active</span>
+            </div>
+            <div class="stat-card-value">48</div>
+          </div>
+        </div>
+
+        <!-- Executive Module Cards (Clicking Instantly Switches Pages) -->
+        <div style="margin-top:2.5rem;">
+          <div class="dash-header-title" style="margin-bottom:1.2rem;">
+            <div>
+              <span class="section-subtitle">DEDICATED PORTAL SECTIONS</span>
+              <h3 style="font-size:1.6rem; color:#fff; margin:0;">Executive Management Pages</h3>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem;">
+            <!-- Module 1: Listings -->
+            <div class="dash-card" style="display:flex; flex-direction:column; justify-content:space-between; margin-bottom:0;">
+              <div>
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:0.8rem;">
+                  <div style="width:36px; height:36px; border-radius:50%; background:rgba(194,133,98,0.15); border:1px solid var(--color-primary); display:flex; align-items:center; justify-content:center; color:var(--color-primary);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 4.5l5 4.5H7l5-4.5z"/></svg>
+                  </div>
+                  <div>
+                    <h4 style="color:#fff; margin:0; font-size:1.15rem;">Listings (24)</h4>
+                    <span style="font-size:0.75rem; color:#888;">24 Prime Kensington Units</span>
+                  </div>
+                </div>
+                <p style="font-size:0.82rem; color:#bbb; line-height:1.5;">Catalog of luxury villas, crown penthouses, and garden duplexes with live valuation tiers.</p>
+              </div>
+              <button type="button" class="btn-solid-copper" data-admin-switch="view-listings" style="width:100%; text-align:center; padding:0.65rem; font-size:0.75rem;">OPEN LISTINGS (24) →</button>
+            </div>
+
+            <!-- Module 2: VIP Inquiries -->
+            <div class="dash-card" style="display:flex; flex-direction:column; justify-content:space-between; margin-bottom:0;">
+              <div>
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:0.8rem;">
+                  <div style="width:36px; height:36px; border-radius:50%; background:rgba(194,133,98,0.15); border:1px solid var(--color-primary); display:flex; align-items:center; justify-content:center; color:var(--color-primary);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                  </div>
+                  <div>
+                    <h4 style="color:#fff; margin:0; font-size:1.15rem;">VIP Inquiries</h4>
+                    <span style="font-size:0.75rem; color:#4ade80;">12 Pending Reviews</span>
+                  </div>
+                </div>
+                <p style="font-size:0.82rem; color:#bbb; line-height:1.5;">Direct showing requests and acquisition briefs from verified sovereign & private wealth patrons.</p>
+              </div>
+              <button type="button" class="btn-solid-copper" data-admin-switch="view-inquiries" style="width:100%; text-align:center; padding:0.65rem; font-size:0.75rem;">OPEN VIP INQUIRIES →</button>
+            </div>
+
+            <!-- Module 3: Private Tours -->
+            <div class="dash-card" style="display:flex; flex-direction:column; justify-content:space-between; margin-bottom:0;">
+              <div>
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:0.8rem;">
+                  <div style="width:36px; height:36px; border-radius:50%; background:rgba(194,133,98,0.15); border:1px solid var(--color-primary); display:flex; align-items:center; justify-content:center; color:var(--color-primary);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+                  </div>
+                  <div>
+                    <h4 style="color:#fff; margin:0; font-size:1.15rem;">Private Tours</h4>
+                    <span style="font-size:0.75rem; color:#facc15;">3 Confirmed Today</span>
+                  </div>
+                </div>
+                <p style="font-size:0.82rem; color:#bbb; line-height:1.5;">Armored chauffeur logistics, lead architectural curators, and security clearance telemetry.</p>
+              </div>
+              <button type="button" class="btn-solid-copper" data-admin-switch="view-tours" style="width:100%; text-align:center; padding:0.65rem; font-size:0.75rem;">OPEN PRIVATE TOURS →</button>
+            </div>
+
+            <!-- Module 4: Escrow & Settlements -->
+            <div class="dash-card" style="display:flex; flex-direction:column; justify-content:space-between; margin-bottom:0;">
+              <div>
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:0.8rem;">
+                  <div style="width:36px; height:36px; border-radius:50%; background:rgba(194,133,98,0.15); border:1px solid var(--color-primary); display:flex; align-items:center; justify-content:center; color:var(--color-primary);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                  </div>
+                  <div>
+                    <h4 style="color:#fff; margin:0; font-size:1.15rem;">Escrow & Settlements</h4>
+                    <span style="font-size:0.75rem; color:#4ade80;">£38.45M Held</span>
+                  </div>
+                </div>
+                <p style="font-size:0.82rem; color:#bbb; line-height:1.5;">Institutional escrow custody with Coutts & UBS, earnest wire releases, and multi-token audits.</p>
+              </div>
+              <button type="button" class="btn-solid-copper" data-admin-switch="view-escrow" style="width:100%; text-align:center; padding:0.65rem; font-size:0.75rem;">OPEN ESCROW LEDGER →</button>
+            </div>
+
+            <!-- Module 5: Investor Dossiers -->
+            <div class="dash-card" style="display:flex; flex-direction:column; justify-content:space-between; margin-bottom:0;">
+              <div>
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:0.8rem;">
+                  <div style="width:36px; height:36px; border-radius:50%; background:rgba(194,133,98,0.15); border:1px solid var(--color-primary); display:flex; align-items:center; justify-content:center; color:var(--color-primary);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                  </div>
+                  <div>
+                    <h4 style="color:#fff; margin:0; font-size:1.15rem;">Investor Dossiers</h4>
+                    <span style="font-size:0.75rem; color:#4ade80;">18 Verified Patrons</span>
+                  </div>
+                </div>
+                <p style="font-size:0.82rem; color:#bbb; line-height:1.5;">Accredited UHNW registry, sovereign family office profiles, and confidential concierge protocol notes.</p>
+              </div>
+              <button type="button" class="btn-solid-copper" data-admin-switch="view-clients" style="width:100%; text-align:center; padding:0.65rem; font-size:0.75rem;">OPEN INVESTOR REGISTRY →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-Time Activity & Telemetry Feed -->
+        <div class="dash-card" style="margin-top:2.5rem;">
+          <div class="dash-card-header">
+            <div>
+              <h3>Real-Time Portfolio Telemetry Feed</h3>
+              <p style="color:#888; font-size:0.85rem; margin:0;">Encrypted system logs, wire settlements, and private inspection dispatches.</p>
+            </div>
+            <span class="status-badge active">Live Stream</span>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:1rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; background:#202020; padding:12px 16px; border:1px solid rgba(255,255,255,0.06); border-radius:2px;">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <span style="width:8px; height:8px; border-radius:50%; background:#4ade80;"></span>
+                <span style="color:#fff; font-size:0.85rem;"><strong>The Royal Sky Penthouse:</strong> Formal acquisition letter received from Sterling Family Trust.</span>
+              </div>
+              <span style="color:#888; font-size:0.75rem;">12 mins ago</span>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; background:#202020; padding:12px 16px; border:1px solid rgba(255,255,255,0.06); border-radius:2px;">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <span style="width:8px; height:8px; border-radius:50%; background:var(--color-primary);"></span>
+                <span style="color:#fff; font-size:0.85rem;"><strong>Escrow Settlement:</strong> Coutts & Co confirmed deposit lock of £7,400,000 for #STK-ESC-8841.</span>
+              </div>
+              <span style="color:#888; font-size:0.75rem;">45 mins ago</span>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; background:#202020; padding:12px 16px; border:1px solid rgba(255,255,255,0.06); border-radius:2px;">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <span style="width:8px; height:8px; border-radius:50%; background:#facc15;"></span>
+                <span style="color:#fff; font-size:0.85rem;"><strong>Chauffeur Dispatch:</strong> Rolls-Royce route locked for Helena Van Der Bilt inspection on Nov 22.</span>
+              </div>
+              <span style="color:#888; font-size:0.75rem;">2 hours ago</span>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; background:#202020; padding:12px 16px; border:1px solid rgba(255,255,255,0.06); border-radius:2px;">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <span style="width:8px; height:8px; border-radius:50%; background:#4ade80;"></span>
+                <span style="color:#fff; font-size:0.85rem;"><strong>Biometric KYC:</strong> Baroness Vivienne Chen renewed accredited investor tier clearance.</span>
+              </div>
+              <span style="color:#888; font-size:0.75rem;">4 hours ago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           VIEW 2: LISTINGS (24)
+           ==================================================================== -->
+      <div class="dash-page-view" id="view-listings">
+        <div class="dash-header-title">
+          <div>
+            <span class="section-subtitle">PORTFOLIO INVENTORY (24 UNITS)</span>
+            <h1>Exclusive Kensington Residences</h1>
+            <p>Live status, architectural specifications, asking valuations, and acquisition availability.</p>
+          </div>
+          <div>
+            <button class="btn-solid-copper" style="padding:0.75rem 1.6rem; font-size:0.75rem; letter-spacing:0.12em;" data-modal-target="add-prop-modal">+ NEW RESIDENCE LISTING</button>
+          </div>
+        </div>
+
+        <!-- 4 Stats Cards -->
+        <div class="dash-stats-grid" style="margin-bottom:2rem;">
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">TOTAL VALUATION</span>
+              <span class="stat-trend" style="color:#4ade80;">24 Residences</span>
+            </div>
+            <div class="stat-card-value">£148.5M</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">ACTIVE AVAILABLE</span>
+              <span class="stat-trend" style="color:#4ade80;">18 Units</span>
+            </div>
+            <div class="stat-card-value">18</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">UNDER OFFER</span>
+              <span class="stat-trend" style="color:#facc15;">4 Units</span>
+            </div>
+            <div class="stat-card-value">04</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">AVG VALUATION</span>
+              <span class="stat-trend">Prime Index</span>
+            </div>
+            <div class="stat-card-value">£6.18M</div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <!-- Filter & Search Toolbar -->
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+            <div class="dash-filter-bar" style="margin-bottom:0;">
+              <button class="dash-filter-btn active" data-filter="all">All Units (24)</button>
+              <button class="dash-filter-btn" data-filter="villa">Villas (8)</button>
+              <button class="dash-filter-btn" data-filter="penthouse">Penthouses (6)</button>
+              <button class="dash-filter-btn" data-filter="duplex">Duplexes (5)</button>
+              <button class="dash-filter-btn" data-filter="mews">Mews (5)</button>
+            </div>
+            <div style="display:flex; align-items:center; gap:0.5rem; background:#1c1c1c; padding:6px 12px; border:1px solid rgba(255,255,255,0.1); border-radius:2px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="admin-prop-search" placeholder="Filter residences..." style="background:transparent; border:none; color:#fff; font-size:0.8rem; outline:none; width:160px;">
+            </div>
+          </div>
+
+          <div class="dash-table-wrapper">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Property Residence</th>
+                  <th>Category</th>
+                  <th>Asking Valuation</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="property-cell">
+                      <img src="assets/images/property-villa-1.webp" alt="Villa 1" class="property-thumb">
+                      <div>
+                        <strong>The Kensington Grand Villa</strong>
+                        <p style="font-size:0.75rem; margin:0; color:#888;">14 Kensington Palace Gardens • 420 m²</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Luxury Villa</td>
+                  <td>£4,850,000</td>
+                  <td><span class="status-badge active">Active Available</span></td>
+                  <td>
+                    <div class="action-btns-group">
+                      <button class="btn-table-action" onclick="showToast('Opening specifications for Villa 1...')">Edit</button>
+                      <button class="btn-table-action btn-delete-row">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="property-cell">
+                      <img src="assets/images/property-penthouse.webp" alt="Penthouse" class="property-thumb">
+                      <div>
+                        <strong>The Royal Sky Penthouse</strong>
+                        <p style="font-size:0.75rem; margin:0; color:#888;">Levels 9-10 • Private Pool • 560 m²</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Crown Penthouse</td>
+                  <td>£7,400,000</td>
+                  <td><span class="status-badge pending">Under Offer</span></td>
+                  <td>
+                    <div class="action-btns-group">
+                      <button class="btn-table-action" onclick="showToast('Opening specifications for Sky Penthouse...')">Edit</button>
+                      <button class="btn-table-action btn-delete-row">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="property-cell">
+                      <img src="assets/images/property-duplex.webp" alt="Duplex" class="property-thumb">
+                      <div>
+                        <strong>Palace Garden Duplex</strong>
+                        <p style="font-size:0.75rem; margin:0; color:#888;">Ground & Courtyard • 360 m²</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Garden Duplex</td>
+                  <td>£5,200,000</td>
+                  <td><span class="status-badge active">Active Available</span></td>
+                  <td>
+                    <div class="action-btns-group">
+                      <button class="btn-table-action" onclick="showToast('Opening specifications for Garden Duplex...')">Edit</button>
+                      <button class="btn-table-action btn-delete-row">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="property-cell">
+                      <img src="assets/images/property-villa-2.webp" alt="Mews" class="property-thumb">
+                      <div>
+                        <strong>The Mews Villa Residence</strong>
+                        <p style="font-size:0.75rem; margin:0; color:#888;">Gated Private Access • 510 m²</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Private Mews</td>
+                  <td>£6,200,000</td>
+                  <td><span class="status-badge sold">Reserved</span></td>
+                  <td>
+                    <div class="action-btns-group">
+                      <button class="btn-table-action" onclick="showToast('Opening specifications for Mews Villa...')">Edit</button>
+                      <button class="btn-table-action btn-delete-row">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           VIEW 3: VIP INQUIRIES
+           ==================================================================== -->
+      <div class="dash-page-view" id="view-inquiries">
+        <div class="dash-header-title">
+          <div>
+            <span class="section-subtitle">PROSPECT TELEMETRY & ACQUISITION BRIEFS</span>
+            <h1>Recent VIP Showing & Acquisition Inquiries</h1>
+            <p>Direct inquiries submitted via Stackly encrypted portals and private family office lines.</p>
+          </div>
+          <div>
+            <span class="status-badge approved" style="font-size:0.75rem; padding:6px 14px;">12 Pending Inquiries • Avg Response: 14m</span>
+          </div>
+        </div>
+
+        <!-- 4 Stats Cards -->
+        <div class="dash-stats-grid" style="margin-bottom:2rem;">
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">PENDING INQUIRIES</span>
+              <span class="stat-trend" style="color:#facc15;">12 Active</span>
+            </div>
+            <div class="stat-card-value">12</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">AVG RESPONSE TIME</span>
+              <span class="stat-trend" style="color:#4ade80;">↓ -4.2m</span>
+            </div>
+            <div class="stat-card-value">14m</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">VERIFIED PATRONS</span>
+              <span class="stat-trend" style="color:#4ade80;">Tier 1 Cleared</span>
+            </div>
+            <div class="stat-card-value">100%</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">CONVERSION RATE</span>
+              <span class="stat-trend">↑ +6.5%</span>
+            </div>
+            <div class="stat-card-value">42%</div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <!-- Filter toolbar -->
+          <div class="dash-filter-bar">
+            <button class="dash-filter-btn active">All Inquiries (12)</button>
+            <button class="dash-filter-btn">Chauffeur Escort</button>
+            <button class="dash-filter-btn">Virtual Walkthrough</button>
+            <button class="dash-filter-btn">Showroom Consult</button>
+          </div>
+
+          <div class="dash-table-wrapper">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Patron Name</th>
+                  <th>Target Residence</th>
+                  <th>Proposed Date</th>
+                  <th>Modality</th>
+                  <th>Decision</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Lord Alistair Sterling</strong><br><span style="color:#888; font-size:0.75rem;">sterling@family-office.co.uk</span></td>
+                  <td>The Royal Sky Penthouse</td>
+                  <td>Nov 18, 2026 • 14:00</td>
+                  <td>Private Chauffeur Inspection</td>
+                  <td>
+                    <span class="status-badge approved">Approved</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Helena Van Der Bilt</strong><br><span style="color:#888; font-size:0.75rem;">vanderbilt@zurich-advisors.ch</span></td>
+                  <td>The Kensington Grand Villa</td>
+                  <td>Nov 22, 2026 • 11:30</td>
+                  <td>Kensington Showroom</td>
+                  <td>
+                    <button class="btn-table-action" onclick="this.parentElement.innerHTML='<span class=\'status-badge approved\'>Confirmed</span>'; showToast('Tour booking confirmed.');">Confirm Tour</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Dr. Tariq Al-Mansoor</strong><br><span style="color:#888; font-size:0.75rem;">almansoor@difc-capital.ae</span></td>
+                  <td>Palace Garden Duplex</td>
+                  <td>Nov 25, 2026 • 16:00</td>
+                  <td>Encrypted Video Walkthrough</td>
+                  <td>
+                    <button class="btn-table-action" onclick="this.parentElement.innerHTML='<span class=\'status-badge approved\'>Confirmed</span>'; showToast('Video conference dispatch generated.');">Confirm Tour</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Baroness Vivienne Chen</strong><br><span style="color:#888; font-size:0.75rem;">vchen@singapore-ventures.sg</span></td>
+                  <td>The Mews Villa Residence</td>
+                  <td>Dec 02, 2026 • 10:00</td>
+                  <td>Helipad VIP Transfer</td>
+                  <td>
+                    <button class="btn-table-action" onclick="this.parentElement.innerHTML='<span class=\'status-badge approved\'>Confirmed</span>'; showToast('Helipad reception clearance generated.');">Confirm Tour</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           VIEW 4: PRIVATE TOURS
+           ==================================================================== -->
+      <div class="dash-page-view" id="view-tours">
+        <div class="dash-header-title">
+          <div>
+            <span class="section-subtitle">INSPECTION AGENDA & DISPATCH</span>
+            <h1>Confirmed VIP Private Tours & Viewing Agenda</h1>
+            <p>Armored chauffeur route coordinates, lead architectural curators, and security clearances.</p>
+          </div>
+          <div>
+            <span class="status-badge approved" style="font-size:0.75rem; padding:6px 14px;">3 Confirmed Tours Today</span>
+          </div>
+        </div>
+
+        <!-- 4 Stats Cards -->
+        <div class="dash-stats-grid" style="margin-bottom:2rem;">
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">CONFIRMED TODAY</span>
+              <span class="stat-trend" style="color:#4ade80;">100% Ready</span>
+            </div>
+            <div class="stat-card-value">03</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">ACTIVE THIS MONTH</span>
+              <span class="stat-trend">↑ +18%</span>
+            </div>
+            <div class="stat-card-value">48</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">CHAUFFEUR MAYBACHS</span>
+              <span class="stat-trend" style="color:#4ade80;">6 On Standby</span>
+            </div>
+            <div class="stat-card-value">06</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">HELIPAD SLOTS</span>
+              <span class="stat-trend" style="color:#facc15;">Battersea Vertiport</span>
+            </div>
+            <div class="stat-card-value">Active</div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div class="dash-table-wrapper">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Residence</th>
+                  <th>VIP Client</th>
+                  <th>Date & Schedule</th>
+                  <th>Assigned Host</th>
+                  <th>Security Clearance</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="property-cell">
+                      <img src="assets/images/property-penthouse.webp" alt="Penthouse" class="property-thumb">
+                      <div>
+                        <strong>The Royal Sky Penthouse</strong>
+                        <p style="font-size:0.75rem; margin:0; color:#888;">14 Kensington Palace Gardens</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Lord Alistair Sterling<br><span style="font-size:0.75rem; color:#888;">Tier 1 Patron</span></td>
+                  <td>Wed, 18 Nov 2026<br><span style="font-size:0.75rem; color:var(--color-primary);">14:00 GMT</span></td>
+                  <td>Sir Julian Vance</td>
+                  <td><span class="status-badge approved">Chauffeur Dispatched</span></td>
+                  <td>
+                    <button class="btn-table-action" onclick="showToast('Dispatching Chauffeur GPS Route to Patron mobile...')">Chauffeur GPS</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="property-cell">
+                      <img src="assets/images/property-villa-1.webp" alt="Villa" class="property-thumb">
+                      <div>
+                        <strong>The Kensington Grand Villa</strong>
+                        <p style="font-size:0.75rem; margin:0; color:#888;">Gated Estate 2</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Helena Van Der Bilt<br><span style="font-size:0.75rem; color:#888;">Zurich Family Office</span></td>
+                  <td>Sun, 22 Nov 2026<br><span style="font-size:0.75rem; color:var(--color-primary);">11:30 GMT</span></td>
+                  <td>Sir Julian Vance</td>
+                  <td><span class="status-badge active">Under Clearance</span></td>
+                  <td>
+                    <button class="btn-table-action" onclick="showToast('Security verification requested.')">Verify Access</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="property-cell">
+                      <img src="assets/images/property-duplex.webp" alt="Duplex" class="property-thumb">
+                      <div>
+                        <strong>Palace Garden Duplex</strong>
+                        <p style="font-size:0.75rem; margin:0; color:#888;">Double Height Salon</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Dr. Tariq Al-Mansoor<br><span style="font-size:0.75rem; color:#888;">DIFC Private Capital</span></td>
+                  <td>Wed, 25 Nov 2026<br><span style="font-size:0.75rem; color:var(--color-primary);">16:00 GMT</span></td>
+                  <td>Associate Clara Thorne</td>
+                  <td><span class="status-badge approved">Virtual Hologram OK</span></td>
+                  <td>
+                    <button class="btn-table-action" onclick="showToast('Encrypted stream link re-transmitted.')">Stream Link</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="property-cell">
+                      <img src="assets/images/property-villa-2.webp" alt="Mews" class="property-thumb">
+                      <div>
+                        <strong>The Mews Villa Residence</strong>
+                        <p style="font-size:0.75rem; margin:0; color:#888;">Private Courtyard</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Baroness Vivienne Chen<br><span style="font-size:0.75rem; color:#888;">Singapore Ventures</span></td>
+                  <td>Wed, 02 Dec 2026<br><span style="font-size:0.75rem; color:var(--color-primary);">10:00 GMT</span></td>
+                  <td>Associate Clara Thorne</td>
+                  <td><span class="status-badge approved">Helipad VIP Clearance</span></td>
+                  <td>
+                    <button class="btn-table-action" onclick="showToast('Helipad reception coordinates dispatched.')">Helipad GPS</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           VIEW 5: ESCROW & SETTLEMENTS
+           ==================================================================== -->
+      <div class="dash-page-view" id="view-escrow">
+        <div class="dash-header-title">
+          <div>
+            <span class="section-subtitle">FINANCIAL GOVERNANCE & SETTLEMENTS</span>
+            <h1>Escrow Ledger & High-Value Settlements</h1>
+            <p>Institutional escrow balances, earnest deposit locks, and verified wire transfers via prime custodian banks.</p>
+          </div>
+          <div>
+            <span class="status-badge approved" style="font-size:0.75rem; padding:6px 14px;">Institutional Custody: Active</span>
+          </div>
+        </div>
+
+        <!-- Escrow 4 Stats Cards -->
+        <div class="dash-stats-grid" style="margin-bottom:2rem;">
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">TOTAL IN ESCROW</span>
+              <span class="stat-trend" style="color:#4ade80;">4 Accounts</span>
+            </div>
+            <div class="stat-card-value">£38.45M</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">RELEASED YTD</span>
+              <span class="stat-trend">↑ +22.4%</span>
+            </div>
+            <div class="stat-card-value">£84.20M</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">AVG SETTLEMENT TIME</span>
+              <span class="stat-trend" style="color:#facc15;">Prime Route</span>
+            </div>
+            <div class="stat-card-value">11 Days</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">AML COMPLIANCE</span>
+              <span class="stat-trend" style="color:#4ade80;">FCA / FINMA</span>
+            </div>
+            <div class="stat-card-value">100%</div>
+          </div>
+        </div>
+
+        <!-- Escrow Ledger Table Card -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div>
+              <h3>Institutional Escrow Custody Records</h3>
+              <p style="color:#888; font-size:0.85rem; margin:0;">Real-time settlement telemetry, earnest wire status, and dual-authorization token audit.</p>
+            </div>
+            <button class="btn-table-action" onclick="showToast('Exporting Escrow Ledger to Encrypted CSV/PDF...')">Export Ledger</button>
+          </div>
+
+          <div class="dash-table-wrapper">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Transaction Ref</th>
+                  <th>Residence Asset</th>
+                  <th>Buyer / Custodian</th>
+                  <th>Escrow Valuation</th>
+                  <th>Custodian Bank</th>
+                  <th>Settlement Status</th>
+                  <th>Executive Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong style="font-family:monospace; color:var(--color-primary);">#STK-ESC-8841</strong><br>
+                    <span style="font-size:0.75rem; color:#888;">Wire Ref: WT-90214</span>
+                  </td>
+                  <td>
+                    <strong>The Royal Sky Penthouse</strong><br>
+                    <span style="font-size:0.75rem; color:#888;">Levels 9-10</span>
+                  </td>
+                  <td>Sterling Family Trust<br><span style="font-size:0.75rem; color:#888;">Mayfair HQ</span></td>
+                  <td><strong style="color:#fff;">£7,400,000</strong></td>
+                  <td>Coutts & Co (London)</td>
+                  <td>
+                    <span class="status-badge approved">90% Funds Locked</span>
+                    <div class="escrow-progress-container"><div class="escrow-progress-fill" style="width:90%;"></div></div>
+                  </td>
+                  <td>
+                    <div class="action-btns-group">
+                      <button class="btn-table-action" onclick="showToast('Escrow certificate #STK-8841 verified on blockchain.')">View Proof</button>
+                      <button class="btn-table-action" style="color:#4ade80; border-color:rgba(74,222,128,0.4);" onclick="showToast('Dual-token dispatch generated for final fund release.')">Release</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong style="font-family:monospace; color:var(--color-primary);">#STK-ESC-8835</strong><br>
+                    <span style="font-size:0.75rem; color:#888;">Wire Ref: WT-88190</span>
+                  </td>
+                  <td>
+                    <strong>The Mews Villa Residence</strong><br>
+                    <span style="font-size:0.75rem; color:#888;">Gated Private Access</span>
+                  </td>
+                  <td>Geneva Alpha Holdings<br><span style="font-size:0.75rem; color:#888;">Geneva Trust SA</span></td>
+                  <td><strong style="color:#fff;">£6,200,000</strong></td>
+                  <td>UBS Private Wealth</td>
+                  <td>
+                    <span class="status-badge pending">Awaiting Title Deed</span>
+                    <div class="escrow-progress-container"><div class="escrow-progress-fill" style="width:65%;"></div></div>
+                  </td>
+                  <td>
+                    <div class="action-btns-group">
+                      <button class="btn-table-action" onclick="showToast('Title deed registry verified with Land Registry.')">Audit Trail</button>
+                      <button class="btn-table-action" onclick="showToast('Settlement notice transmitted to Geneva.')">Notify Buyer</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong style="font-family:monospace; color:var(--color-primary);">#STK-ESC-8819</strong><br>
+                    <span style="font-size:0.75rem; color:#888;">Wire Ref: WT-87421</span>
+                  </td>
+                  <td>
+                    <strong>Palace Garden Duplex</strong><br>
+                    <span style="font-size:0.75rem; color:#888;">Ground & Courtyard</span>
+                  </td>
+                  <td>DIFC Private Capital Trust<br><span style="font-size:0.75rem; color:#888;">Dubai UAE</span></td>
+                  <td><strong style="color:#fff;">£1,040,000</strong><br><span style="font-size:0.72rem; color:#888;">Earnest 20% Deposit</span></td>
+                  <td>HSBC Private Bank (UK)</td>
+                  <td>
+                    <span class="status-badge approved">Deposit Cleared</span>
+                    <div class="escrow-progress-container"><div class="escrow-progress-fill" style="width:100%;"></div></div>
+                  </td>
+                  <td>
+                    <div class="action-btns-group">
+                      <button class="btn-table-action" onclick="showToast('Deposit receipt generated.')">Receipt</button>
+                      <button class="btn-table-action" onclick="showToast('Final contract package dispatched.')">Contracts</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong style="font-family:monospace; color:var(--color-primary);">#STK-ESC-8790</strong><br>
+                    <span style="font-size:0.75rem; color:#888;">Wire Ref: WT-86332</span>
+                  </td>
+                  <td>
+                    <strong>The Kensington Grand Villa</strong><br>
+                    <span style="font-size:0.75rem; color:#888;">Estate 14</span>
+                  </td>
+                  <td>Zurich Private Advisors<br><span style="font-size:0.75rem; color:#888;">Zurich CH</span></td>
+                  <td><strong style="color:#fff;">£4,850,000</strong></td>
+                  <td>Credit Suisse / UBS</td>
+                  <td>
+                    <span class="status-badge sold">Completed & Settled</span>
+                    <div class="escrow-progress-container"><div class="escrow-progress-fill" style="width:100%; background:#4ade80;"></div></div>
+                  </td>
+                  <td>
+                    <div class="action-btns-group">
+                      <button class="btn-table-action" onclick="showToast('Archive settlement record downloaded.')">Archive Record</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           VIEW 6: INVESTOR DOSSIERS
+           ==================================================================== -->
+      <div class="dash-page-view" id="view-clients">
+        <div class="dash-header-title">
+          <div>
+            <span class="section-subtitle">PRIVATE WEALTH REGISTRY</span>
+            <h1>Accredited VIP Investor Dossiers & KYC Registry</h1>
+            <p>Confidential high-net-worth patron files, verified wealth tiers, and accredited representative credentials.</p>
+          </div>
+          <div>
+            <span class="status-badge approved" style="font-size:0.75rem; padding:6px 14px;">18 Verified VIP Patrons</span>
+          </div>
+        </div>
+
+        <!-- 4 Stats Cards -->
+        <div class="dash-stats-grid" style="margin-bottom:2rem;">
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">VERIFIED PATRONS</span>
+              <span class="stat-trend" style="color:#4ade80;">Active</span>
+            </div>
+            <div class="stat-card-value">18</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">BUYING POWER</span>
+              <span class="stat-trend">Liquid Tier</span>
+            </div>
+            <div class="stat-card-value">£270M+</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">SOVEREIGN TRUSTS</span>
+              <span class="stat-trend" style="color:#facc15;">4 Capital Groups</span>
+            </div>
+            <div class="stat-card-value">04</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">KYC / NDA STATUS</span>
+              <span class="stat-trend" style="color:#4ade80;">100% Cleared</span>
+            </div>
+            <div class="stat-card-value">100%</div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <!-- Filter toolbar -->
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+            <div class="dash-filter-bar" style="margin-bottom:0;">
+              <button class="dash-filter-btn active">All Patrons (18)</button>
+              <button class="dash-filter-btn">Tier 1 Sovereign</button>
+              <button class="dash-filter-btn">Family Offices</button>
+              <button class="dash-filter-btn">Accredited Trusts</button>
+            </div>
+            <div style="display:flex; align-items:center; gap:0.5rem; background:#1c1c1c; padding:6px 12px; border:1px solid rgba(255,255,255,0.1); border-radius:2px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="admin-investor-search" placeholder="Search patron or trust..." style="background:transparent; border:none; color:#fff; font-size:0.8rem; outline:none; width:170px;">
+            </div>
+          </div>
+
+          <div class="dash-table-wrapper">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Patron Dossier</th>
+                  <th>Jurisdiction & Tier</th>
+                  <th>Target Allocation</th>
+                  <th>KYC / AML Status</th>
+                  <th>Relationship Lead</th>
+                  <th>Dossier Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:1rem;">
+                      <div class="investor-avatar-badge">AS</div>
+                      <div>
+                        <strong>Lord Alistair Sterling</strong><br>
+                        <span style="font-size:0.75rem; color:#888;">sterling@family-office.co.uk</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <strong style="color:#fff;">Tier 1 Sovereign</strong><br>
+                    <span style="font-size:0.75rem; color:var(--color-primary);">London / Mayfair</span>
+                  </td>
+                  <td>The Royal Sky Penthouse<br><span style="font-size:0.75rem; color:#888;">Valuation: £7.4M</span></td>
+                  <td><span class="status-badge approved">Biometric NDA Cleared</span></td>
+                  <td>Sir Julian Vance</td>
+                  <td>
+                    <div class="action-btns-group">
+                      <button class="btn-table-action" onclick="showToast('Opening confidential dossier for Lord Sterling...')">Open Dossier</button>
+                      <button class="btn-table-action" onclick="showToast('Dialing direct encrypted line...')">Call</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:1rem;">
+                      <div class="investor-avatar-badge">HV</div>
+                      <div>
+                        <strong>Helena Van Der Bilt</strong><br>
+                        <span style="font-size:0.75rem; color:#888;">vanderbilt@zurich-advisors.ch</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <strong style="color:#fff;">Swiss Multi-Family</strong><br>
+                    <span style="font-size:0.75rem; color:var(--color-primary);">Zurich / Geneva</span>
+                  </td>
+                  <td>The Kensington Grand Villa<br><span style="font-size:0.75rem; color:#888;">Valuation: £4.85M</span></td>
+                  <td><span class="status-badge approved">FINMA Verified</span></td>
+                  <td>Sir Julian Vance</td>
+                  <td>
+                    <div class="action-btns-group">
+                      <button class="btn-table-action" onclick="showToast('Opening confidential dossier for Helena Van Der Bilt...')">Open Dossier</button>
+                      <button class="btn-table-action" onclick="showToast('Dialing direct encrypted line...')">Call</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:1rem;">
+                      <div class="investor-avatar-badge">TM</div>
+                      <div>
+                        <strong>Dr. Tariq Al-Mansoor</strong><br>
+                        <span style="font-size:0.75rem; color:#888;">almansoor@difc-capital.ae</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <strong style="color:#fff;">Sovereign Wealth</strong><br>
+                    <span style="font-size:0.75rem; color:var(--color-primary);">DIFC / Dubai</span>
+                  </td>
+                  <td>Palace Garden Duplex<br><span style="font-size:0.75rem; color:#888;">Valuation: £5.2M</span></td>
+                  <td><span class="status-badge approved">Diplomatic Clearance</span></td>
+                  <td>Associate Clara Thorne</td>
+                  <td>
+                    <div class="action-btns-group">
+                      <button class="btn-table-action" onclick="showToast('Opening confidential dossier for Dr. Tariq Al-Mansoor...')">Open Dossier</button>
+                      <button class="btn-table-action" onclick="showToast('Dialing direct encrypted line...')">Call</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:1rem;">
+                      <div class="investor-avatar-badge">VC</div>
+                      <div>
+                        <strong>Baroness Vivienne Chen</strong><br>
+                        <span style="font-size:0.75rem; color:#888;">vchen@singapore-ventures.sg</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <strong style="color:#fff;">Pan-Asian Family Trust</strong><br>
+                    <span style="font-size:0.75rem; color:var(--color-primary);">Singapore / HK</span>
+                  </td>
+                  <td>The Mews Villa Residence<br><span style="font-size:0.75rem; color:#888;">Valuation: £6.2M</span></td>
+                  <td><span class="status-badge pending">KYC Tier 3 Renewal</span></td>
+                  <td>Associate Clara Thorne</td>
+                  <td>
+                    <div class="action-btns-group">
+                      <button class="btn-table-action" onclick="showToast('Opening confidential dossier for Baroness Vivienne Chen...')">Open Dossier</button>
+                      <button class="btn-table-action" onclick="showToast('Transmitting renewal link...')">Renew KYC</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Confidential Concierge Preferences Card -->
+        <div class="dash-card" style="margin-top:2rem;">
+          <div class="dash-card-header">
+            <div>
+              <h3>Confidential Concierge Protocol Notes</h3>
+              <p style="color:#888; font-size:0.85rem; margin:0;">Special handling, security details, and private showing preferences for verified patrons.</p>
+            </div>
+            <span class="status-badge active">Strictly Confidential</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:1.2rem;">
+            <div style="background:#222; padding:1.2rem; border:1px solid rgba(255,255,255,0.06); border-radius:2px;">
+              <strong style="color:var(--color-primary); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:0.3rem;">Lord Alistair Sterling</strong>
+              <p style="font-size:0.82rem; color:#bbb; margin:0;">Requires armored Mercedes Maybach transport from Battersea Vertiport. Prefers private acoustic walkthrough with principal architect only.</p>
+            </div>
+
+            <div style="background:#222; padding:1.2rem; border:1px solid rgba(255,255,255,0.06); border-radius:2px;">
+              <strong style="color:var(--color-primary); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:0.3rem;">Helena Van Der Bilt</strong>
+              <p style="font-size:0.82rem; color:#bbb; margin:0;">Wine cellar climate-control inspection required. Sommelier vintage champagne tasting prepared for 11:30 GMT arrival.</p>
+            </div>
+
+            <div style="background:#222; padding:1.2rem; border:1px solid rgba(255,255,255,0.06); border-radius:2px;">
+              <strong style="color:var(--color-primary); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:0.3rem;">Dr. Tariq Al-Mansoor</strong>
+              <p style="font-size:0.82rem; color:#bbb; margin:0;">Encrypted VR hologram feed requested. Family office architectural legal team in DIFC joining remotely via encrypted link.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       MODAL: ADD NEW PROPERTY LISTING
+       ========================================================================== -->
+  <div class="modal-overlay" id="add-prop-modal">
+    <div class="modal-card" style="background:#181818; color:#fff; border:1px solid rgba(255,255,255,0.1);">
+      <div class="modal-close-btn">&times;</div>
+      <h3 style="color:#fff; font-size:1.8rem; margin-bottom:0.5rem;">Add New Residence Listing</h3>
+      <p style="color:#888; font-size:0.85rem; margin-bottom:2rem;">Publish a new luxury architectural property to the Stackly portfolio.</p>
+
+      <form id="add-property-form" novalidate>
+        <div class="form-group">
+          <label for="new-prop-title">Residence Name *</label>
+          <input type="text" id="new-prop-title" class="form-control" placeholder="e.g. The Queen's Gate Penthouse">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="new-prop-price">Valuation (£) *</label>
+            <input type="text" id="new-prop-price" class="form-control" placeholder="£5,800,000">
+          </div>
+          <div class="form-group">
+            <label for="new-prop-type">Category *</label>
+            <select id="new-prop-type" class="form-control" style="background:#222;">
+              <option value="Luxury Villa">Luxury Villa</option>
+              <option value="Crown Penthouse">Crown Penthouse</option>
+              <option value="Garden Duplex">Garden Duplex</option>
+              <option value="Mews Residence">Mews Residence</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="new-prop-beds">Bedrooms</label>
+            <input type="number" id="new-prop-beds" class="form-control" value="4">
+          </div>
+          <div class="form-group">
+            <label for="new-prop-area">Floor Area (m²)</label>
+            <input type="number" id="new-prop-area" class="form-control" value="450">
+          </div>
+        </div>
+
+        <div style="margin-top:2rem; display:flex; justify-content:flex-end; gap:1rem;">
+          <button type="button" class="btn-table-action" onclick="document.getElementById('add-prop-modal').classList.remove('active')">Cancel</button>
+          <button type="submit" class="btn-solid-copper">PUBLISH LISTING</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

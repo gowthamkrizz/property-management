@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Residences & Properties – Stackly Kensington Collection</title>
+  <meta name="description" content="Browse available luxury penthouses, duplexes, and villas at Stackly Kensington. Complete architectural specifications, pricing, and floor plans.">
+  <link rel="icon" type="image/webp" href="assets/images/stackly-logo-light.webp">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION (HENDON KENSINGTON EXACT)
+       ========================================================================== -->
+  <header id="qodef-page-header" class="site-header">
+    <div class="qodef-header-inner header-inner">
+      <div class="qodef-header-logo-link">
+        <a href="index.html" aria-label="Stackly Home">
+          <img src="assets/images/stackly-logo-light.webp" alt="Stackly Logo" class="header-logo logo-light">
+          <img src="assets/images/stackly-logo-dark.webp" alt="Stackly Logo" class="header-logo logo-dark">
+        </a>
+      </div>
+
+      <nav class="qodef-header-navigation main-nav" aria-label="Primary Menu">
+        <ul class="menu nav-menu">
+          <li class="menu-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="menu-item"><a href="pages.html" class="nav-link">Pages</a></li>
+          <li class="menu-item"><a href="about-us.html" class="nav-link">About Us</a></li>
+          <li class="menu-item"><a href="property.html" class="nav-link active">Property</a></li>
+          <li class="menu-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="qodef-header-widget-holder header-actions">
+        <div class="header-auth-wrapper">
+          <a href="login.html" class="btn-header-visit btn-header-cta header-auth-btn" id="header-auth-trigger" aria-label="Login or Sign Up">
+            <svg class="header-auth-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Login / Signup</span>
+            <svg class="header-auth-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </a>
+          <div class="header-auth-dropdown" id="header-auth-dropdown" role="menu" aria-label="User Account Options">
+            <a href="login.html" class="header-auth-drop-link" role="menuitem">
+              <div class="drop-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                  <polyline points="10 17 15 12 10 7"></polyline>
+                  <line x1="15" y1="12" x2="3" y2="12"></line>
+                </svg>
+              </div>
+              <div class="drop-text">
+                <span class="drop-title">Resident & Admin Login</span>
+                <span class="drop-desc">Access resident dossier or administration</span>
+              </div>
+            </a>
+            <div class="header-auth-divider"></div>
+            <a href="signup.html" class="header-auth-drop-link" role="menuitem">
+              <div class="drop-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="8.5" cy="7" r="4"></circle>
+                  <line x1="20" y1="8" x2="20" y2="14"></line>
+                  <line x1="23" y1="11" x2="17" y2="11"></line>
+                </svg>
+              </div>
+              <div class="drop-text">
+                <span class="drop-title">Apply for Registry (Sign Up)</span>
+                <span class="drop-desc">Prospective resident & investor registration</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="qodef-side-area-opener header-offcanvas-trigger" id="qodef-side-area-opener-trigger" aria-label="Side Area Opener">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- OFFCANVAS SIDE AREA -->
+  <div class="qodef-side-area-cover offcanvas-overlay" id="qodef-side-cover" aria-hidden="true"></div>
+  <aside id="qodef-side-area" class="offcanvas-panel" aria-label="Side Area" aria-hidden="true">
+    <button type="button" class="qodef-side-area-close offcanvas-close" id="qodef-side-close" aria-label="Close Side Area">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div>
+      <a href="index.html" style="display:inline-block; margin-bottom:2rem;">
+        <img src="assets/images/stackly-logo-light.webp" alt="Stackly" style="max-width:160px; display:block;">
+      </a>
+      <nav class="qodef-side-area-nav offcanvas-links">
+        <a href="index.html">Home</a>
+        <a href="pages.html">Pages</a>
+        <a href="about-us.html">About Us</a>
+        <a href="property.html" class="active">Property</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:2rem;">
+      <p style="color:#aaa; font-size:0.85rem; margin-bottom:0.5rem;"><strong style="color:var(--color-primary);">Address:</strong> MMR COMPLEX, CHINNA THIRUPATHI, NEAR CHINNA MUNIYAPPAN KOVIL, SALEM - 636 003</p>
+      <p style="color:#aaa; font-size:0.85rem; margin-bottom:0.5rem;"><strong style="color:var(--color-primary);">Phone:</strong> <a href="tel:+919090909090" style="color:inherit; text-decoration:none;">+91 90909 09090</a></p>
+      <p style="color:#aaa; font-size:0.85rem; margin-bottom:0.8rem;"><strong style="color:var(--color-primary);">Email:</strong> <a href="mailto:info@stackly.com" style="color:inherit; text-decoration:none;">info@stackly.com</a></p>
+      <div style="padding-top:0.8rem; border-top:1px dashed rgba(255,255,255,0.1); display:flex; gap:1.2rem; align-items:center;">
+        <a href="login.html" style="color:var(--color-primary); font-size:0.85rem; text-decoration:none; font-weight:500;">Resident Login</a>
+        <span style="color:rgba(255,255,255,0.2);">•</span>
+        <a href="signup.html" style="color:#aaa; font-size:0.85rem; text-decoration:none;">Sign Up</a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ==========================================================================
+         SECTION 1: PROPERTY CATALOG HERO
+         ========================================================================== -->
+    <section class="page-hero-banner" style="background-image: url('assets/images/property-hero.webp');">
+      <div class="container page-hero-content">
+        <span class="section-subtitle">THE COLLECTION</span>
+        <h1>Curated Kensington Residences</h1>
+        <div class="page-breadcrumbs">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Property</span>
+          <span>/</span>
+          <span style="color:var(--color-primary);">Exclusive Residences</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 2: DYNAMIC FILTER TOOLBAR
+         ========================================================================== -->
+    <section style="padding: 3rem 0; background:var(--color-white); border-bottom:1px solid var(--color-border-light);" id="property-filters">
+      <div class="container">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem;">
+          <div class="villa-tabs" style="margin:0;">
+            <button class="property-filter-btn villa-tab-btn active" data-filter="all">All Portfolios (6)</button>
+            <button class="property-filter-btn villa-tab-btn" data-filter="villas">Villas (2)</button>
+            <button class="property-filter-btn villa-tab-btn" data-filter="penthouses">Penthouses (2)</button>
+            <button class="property-filter-btn villa-tab-btn" data-filter="duplex">Duplexes (2)</button>
+          </div>
+
+          <div style="display:flex; gap:1rem; align-items:center;">
+            <span style="font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:#777;">Sort By:</span>
+            <select class="form-control" style="width:auto; padding:0.5rem 1.2rem; font-size:0.85rem; background:#fff;">
+              <option>Price (High to Low)</option>
+              <option>Price (Low to High)</option>
+              <option>Square Footage</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 3: MASTER PROPERTY COLLECTION GRID (6 RESIDENCES)
+         ========================================================================== -->
+    <section style="padding: 6.5rem 0; background:var(--color-bg-light);" id="residence-catalog">
+      <div class="container">
+        <div class="villa-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
+          <!-- Property 1 -->
+          <div class="villa-card property-grid-item stagger-item" data-category="villas">
+            <div class="villa-card-image">
+              <img src="assets/images/property-villa-1.webp" alt="Villa Kensington 1">
+              <span class="villa-price-badge">£4,850,000</span>
+            </div>
+            <div class="villa-card-body">
+              <h4>The Kensington Grand Villa</h4>
+              <p>Monolithic limestone façade with four private en-suite pavilions and private subterranean spa.</p>
+              <div class="villa-specs">
+                <span><strong>4</strong> Beds</span>
+                <span><strong>4.5</strong> Baths</span>
+                <span><strong>420</strong> m²</span>
+              </div>
+              <a href="404.html" class="btn-luxury">
+                <span>VIEW SPECIFICATIONS</span>
+                <span class="btn-circle-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Property 2 -->
+          <div class="villa-card property-grid-item stagger-item" data-category="penthouses">
+            <div class="villa-card-image">
+              <img src="assets/images/property-penthouse.webp" alt="The Royal Sky Penthouse">
+              <span class="villa-price-badge">£7,400,000</span>
+            </div>
+            <div class="villa-card-body">
+              <h4>The Royal Sky Penthouse</h4>
+              <p>Crown jewel duplex crowning the Kensington development with private glass elevator and 360° terrace.</p>
+              <div class="villa-specs">
+                <span><strong>5</strong> Beds</span>
+                <span><strong>6</strong> Baths</span>
+                <span><strong>560</strong> m²</span>
+              </div>
+              <a href="404.html" class="btn-luxury">
+                <span>VIEW SPECIFICATIONS</span>
+                <span class="btn-circle-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Property 3 -->
+          <div class="villa-card property-grid-item stagger-item" data-category="duplex">
+            <div class="villa-card-image">
+              <img src="assets/images/property-duplex.webp" alt="Palace Garden Duplex">
+              <span class="villa-price-badge">£5,200,000</span>
+            </div>
+            <div class="villa-card-body">
+              <h4>Palace Garden Duplex</h4>
+              <p>Double-height 6.5m ceiling salon with mezzanine private study, wine vault, and tranquil garden court.</p>
+              <div class="villa-specs">
+                <span><strong>4</strong> Beds</span>
+                <span><strong>4.5</strong> Baths</span>
+                <span><strong>440</strong> m²</span>
+              </div>
+              <a href="404.html" class="btn-luxury">
+                <span>VIEW SPECIFICATIONS</span>
+                <span class="btn-circle-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Property 4 -->
+          <div class="villa-card property-grid-item stagger-item" data-category="villas">
+            <div class="villa-card-image">
+              <img src="assets/images/property-villa-2.webp" alt="The Mews Villa Residence">
+              <span class="villa-price-badge">£6,100,000</span>
+            </div>
+            <div class="villa-card-body">
+              <h4>The Mews Villa Residence</h4>
+              <p>Triple-aspect lateral villa framing mature plane trees, with private gated courtyard and garage.</p>
+              <div class="villa-specs">
+                <span><strong>5</strong> Beds</span>
+                <span><strong>5.5</strong> Baths</span>
+                <span><strong>510</strong> m²</span>
+              </div>
+              <a href="404.html" class="btn-luxury">
+                <span>VIEW SPECIFICATIONS</span>
+                <span class="btn-circle-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Property 5 -->
+          <div class="villa-card property-grid-item stagger-item" data-category="duplex">
+            <div class="villa-card-image">
+              <img src="assets/images/property-villa-3.webp" alt="The Belgravia Suite">
+              <span class="villa-price-badge">£3,450,000</span>
+            </div>
+            <div class="villa-card-body">
+              <h4>The Belgravia Suite</h4>
+              <p>A refined lateral residence boasting high ceilings, bespoke herringbone parquet, and Poggenpohl kitchen.</p>
+              <div class="villa-specs">
+                <span><strong>3</strong> Beds</span>
+                <span><strong>3</strong> Baths</span>
+                <span><strong>310</strong> m²</span>
+              </div>
+              <a href="404.html" class="btn-luxury">
+                <span>VIEW SPECIFICATIONS</span>
+                <span class="btn-circle-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Property 6 -->
+          <div class="villa-card property-grid-item stagger-item" data-category="penthouses">
+            <div class="villa-card-image">
+              <img src="assets/images/property-villa-4.webp" alt="The Horizon Sky Terrace">
+              <span class="villa-price-badge">£5,150,000</span>
+            </div>
+            <div class="villa-card-body">
+              <h4>The Horizon Sky Terrace</h4>
+              <p>Top floor lateral suite featuring an expansive wraparound deck overlooking Kensington Palace Gardens.</p>
+              <div class="villa-specs">
+                <span><strong>4</strong> Beds</span>
+                <span><strong>4</strong> Baths</span>
+                <span><strong>460</strong> m²</span>
+              </div>
+              <a href="404.html" class="btn-luxury">
+                <span>VIEW SPECIFICATIONS</span>
+                <span class="btn-circle-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 4: SELECTED PROPERTY IN-DEPTH SPOTLIGHT
+         ========================================================================== -->
+    <section style="padding: 7.5rem 0; background:var(--color-white);" id="property-spotlight">
+      <div class="container">
+        <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 4.5rem; align-items:center;">
+          <div class="fade-up stagger-item">
+            <span class="section-subtitle">ARCHITECTURAL SPOTLIGHT</span>
+            <h2 class="section-title">Villa Kensington 1: Private Dossier</h2>
+            <p>Crafted as an acoustic fortress in the heart of London, Villa Kensington 1 combines quadruple-laminated acoustic glazing with independent floating slab structural isolating systems.</p>
+            
+            <div style="border-top:1px solid var(--color-border-light); padding-top:1.5rem; margin-top:2rem;">
+              <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.2rem; font-size:0.88rem;">
+                <div><strong>Tenure:</strong> Share of Freehold</div>
+                <div><strong>Service Charge:</strong> Estimated £8.50/sq ft</div>
+                <div><strong>Parking:</strong> 2 Secure Underground Spaces</div>
+                <div><strong>Energy Rating:</strong> EPC A (BREEAM Outstanding)</div>
+                <div><strong>HVAC:</strong> Individual HEPA Filtration</div>
+                <div><strong>Handover:</strong> Immediate Occupancy</div>
+              </div>
+            </div>
+
+            <div style="margin-top:2.5rem; display:flex; gap:1.5rem; flex-wrap:wrap;">
+              <a href="404.html" class="btn-solid-copper">SCHEDULE PRIVATE VIEWING</a>
+              <button class="btn-solid-dark" onclick="window.location.href='404.html'">DOWNLOAD DOSSIER (PDF)</button>
+            </div>
+          </div>
+
+          <div class="stagger-item">
+            <div class="masked-reveal-box is-revealed" style="border-radius:4px; overflow:hidden; box-shadow: 0 20px 45px rgba(0,0,0,0.12); margin-bottom:1.5rem;">
+              <img src="assets/images/gallery-interior-1.webp" alt="Villa Kensington 1 Salon" style="width:100%; display:block; transition:transform 0.8s ease;">
+            </div>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+              <img src="assets/images/gallery-interior-2.webp" alt="Detail 1" style="border-radius:2px; box-shadow:0 6px 18px rgba(0,0,0,0.06); width:100%; height:140px; object-fit:cover;">
+              <img src="assets/images/gallery-interior-4.webp" alt="Detail 2" style="border-radius:2px; box-shadow:0 6px 18px rgba(0,0,0,0.06); width:100%; height:140px; object-fit:cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 5: INTERACTIVE 3D FLOOR PLAN & SCHEMATICS
+         ========================================================================== -->
+    <section class="section-floorplan" style="background:var(--color-bg-light);">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">SPATIAL DISTRIBUTION</span>
+          <h2 class="section-title">Interactive Architectural Schematics</h2>
+          <p class="section-desc">Toggle between unit layouts to inspect living ratios, private corridors, and terrace dimensions.</p>
+        </div>
+
+        <div class="floorplan-wrapper stagger-item">
+          <div class="floorplan-selector-list">
+            <div class="floorplan-tab-item active" data-plan="penthouse">
+              <h5>The Sky Penthouse <span class="fp-price">£7.4M</span></h5>
+              <p>Top-tier duplex with private infinity plunge pool and 360° London skyline views.</p>
+            </div>
+            <div class="floorplan-tab-item" data-plan="duplex">
+              <h5>Palace Garden Duplex <span class="fp-price">£5.2M</span></h5>
+              <p>Double-height 6.5m ceiling salon with mezzanine study and bespoke wine vault.</p>
+            </div>
+            <div class="floorplan-tab-item" data-plan="garden">
+              <h5>Villa Kensington 1 <span class="fp-price">£4.85M</span></h5>
+              <p>Secluded courtyard residence with mature Japanese maples and private subterranean gallery.</p>
+            </div>
+          </div>
+
+          <div class="floorplan-view-box">
+            <div class="floorplan-image-stage">
+              <img src="assets/images/floorplan-schematic.webp" alt="Schematic" id="floorplan-display-img">
+            </div>
+            <div class="floorplan-specs-bar">
+              <div class="fp-spec-col">
+                <span>Total Area</span>
+                <strong id="fp-area-val">480 m² / 5,166 sq.ft</strong>
+              </div>
+              <div class="fp-spec-col">
+                <span>Bedrooms</span>
+                <strong id="fp-beds-val">4 Master En-Suites</strong>
+              </div>
+              <div class="fp-spec-col">
+                <span>Bathrooms</span>
+                <strong id="fp-baths-val">5.5 Marble Baths</strong>
+              </div>
+              <div class="fp-spec-col">
+                <span>Terrace Area</span>
+                <strong id="fp-terrace-val">120 m² Wraparound</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 6: NEIGHBORHOOD PROXIMITY & LIFESTYLE RADIUS
+         ========================================================================== -->
+    <section class="section-neighborhood" style="background:var(--color-white); padding:7.5rem 0;">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 4rem;">
+          <span class="section-subtitle">THE KENSINGTON ADDRESS</span>
+          <h2 class="section-title">Commute & Lifestyle Radius</h2>
+          <p class="section-desc">London’s most iconic cultural and dining institutions within effortless travel distance.</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;">
+          <div class="lifestyle-card stagger-item">
+            <h3>3</h3>
+            <span class="lifestyle-unit">MINUTES WALK</span>
+            <h5>Kensington Gardens</h5>
+            <p>Immediate access to the tranquil royal grounds and Serpentine lake.</p>
+          </div>
+
+          <div class="lifestyle-card stagger-item">
+            <h3>6</h3>
+            <span class="lifestyle-unit">MINUTES TRANSIT</span>
+            <h5>Harrods & Knightsbridge</h5>
+            <p>The world's premier luxury department store and designer boutiques.</p>
+          </div>
+
+          <div class="lifestyle-card stagger-item">
+            <h3>22</h3>
+            <span class="lifestyle-unit">MINUTES DRIVE</span>
+            <h5>London Heathrow Airport</h5>
+            <p>Rapid direct highway routing to VIP private jet terminals.</p>
+          </div>
+
+          <div class="lifestyle-card stagger-item">
+            <h3>12</h3>
+            <span class="lifestyle-unit">MINUTES VEHICLE</span>
+            <h5>Mayfair Private Clubs</h5>
+            <p>Annabel’s, 5 Hertford Street, and the arts center of Berkeley Square.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 7: INTERACTIVE MORTGAGE & INVESTMENT CALCULATOR
+         ========================================================================== -->
+    <section style="padding: 7.5rem 0; background:var(--color-bg-alt);" id="mortgage-calc">
+      <div class="container" style="max-width:1050px;">
+        <div class="text-center" style="margin-bottom: 3.5rem;">
+          <span class="section-subtitle">FINANCIAL MODELING</span>
+          <h2 class="section-title">Mortgage & Financing Estimator</h2>
+          <p class="section-desc">Estimate monthly debt service allocations based on typical UK high-net-worth private lending parameters.</p>
+        </div>
+
+        <div class="stagger-item" style="background:#fff; border:1px solid var(--color-border-light); padding:3.5rem; display:grid; grid-template-columns: 1.2fr 0.8fr; gap:3.5rem; box-shadow:0 15px 40px rgba(0,0,0,0.04);">
+          <form id="mortgage-calculator-form" novalidate>
+            <div class="form-group">
+              <label for="calc-price">Property Acquisition Price (£)</label>
+              <input type="number" id="calc-price" class="form-control" value="4850000" step="50000">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="calc-deposit">Deposit Amount (£)</label>
+                <input type="number" id="calc-deposit" class="form-control" value="1212500" step="25000">
+              </div>
+              <div class="form-group">
+                <label for="calc-rate">Interest Rate (%)</label>
+                <input type="number" id="calc-rate" class="form-control" value="4.2" step="0.1">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="calc-term">Mortgage Term (Years)</label>
+              <select id="calc-term" class="form-control">
+                <option value="15">15 Years (Capital & Interest)</option>
+                <option value="25" selected>25 Years (Standard)</option>
+                <option value="30">30 Years (Extended)</option>
+              </select>
+            </div>
+            <button type="button" id="btn-calc-mortgage" class="btn-solid-copper" style="width:100%; height:48px; margin-top:0.5rem;">CALCULATE DEBT SERVICE</button>
+          </form>
+
+          <div style="background:var(--color-bg-light); border:1px solid var(--color-border-light); padding:2.5rem; display:flex; flex-direction:column; justify-content:center; text-align:center;">
+            <span style="font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:#777; display:block; margin-bottom:0.5rem;">ESTIMATED MONTHLY PAYMENT</span>
+            <h3 id="calc-result-val" style="color:var(--color-primary); font-size:3.2rem; margin-bottom:1rem; font-family:var(--font-heading);">£19,650</h3>
+            
+            <div style="border-top:1px solid var(--color-border-light); padding-top:1.2rem; margin-top:1rem; font-size:0.88rem; color:#666;">
+              Indicative repayment subject to formal underwrite.
+            </div>
+
+            <button class="btn-solid-dark" style="margin-top:1.8rem;" onclick="window.location.href='404.html'">CONSULT MORTGAGE DESK</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 7.5: PARTNER LOGOS AUTO-SCROLLING MARQUEE
+         ========================================================================== -->
+    <section class="section-partners-marquee" style="background:#121212; padding:3.5rem 0; border-top:1px solid rgba(255,255,255,0.08); border-bottom:1px solid rgba(255,255,255,0.08);">
+      <div class="container text-center" style="margin-bottom:1.5rem;">
+        <span class="section-subtitle" style="margin-bottom:0.2rem; font-size:0.7rem; color:rgba(255,255,255,0.5);">INSTITUTIONAL ACCREDITATIONS & PARTNERS</span>
+      </div>
+      <div class="partners-marquee-wrapper" aria-label="Client Partners Auto-scrolling Carousel">
+        <div class="partners-marquee-track">
+          <!-- Set 1 -->
+          <div class="partner-logo-item" title="Luxury Home Architecture">
+            <img src="assets/images/client-logo-1.webp" alt="Partner Architectural Bureau">
+          </div>
+          <div class="partner-logo-item" title="RIBA Chartered Practice">
+            <img src="assets/images/client-logo-2.webp" alt="RIBA Chartered Architect">
+          </div>
+          <div class="partner-logo-item" title="Kensington Heritage Guild">
+            <img src="assets/images/client-logo-3.webp" alt="Heritage Restoration Guild">
+          </div>
+          <div class="partner-logo-item" title="BREEAM Sustainable Engineering">
+            <img src="assets/images/client-logo-4.webp" alt="BREEAM Outstanding">
+          </div>
+          <div class="partner-logo-item" title="International Property Awards">
+            <img src="assets/images/client-logo-5.webp" alt="International Property Awards 2025">
+          </div>
+          <!-- Set 2 for seamless loop -->
+          <div class="partner-logo-item" title="Luxury Home Architecture">
+            <img src="assets/images/client-logo-1.webp" alt="Partner Architectural Bureau">
+          </div>
+          <div class="partner-logo-item" title="RIBA Chartered Practice">
+            <img src="assets/images/client-logo-2.webp" alt="RIBA Chartered Architect">
+          </div>
+          <div class="partner-logo-item" title="Kensington Heritage Guild">
+            <img src="assets/images/client-logo-3.webp" alt="Heritage Restoration Guild">
+          </div>
+          <div class="partner-logo-item" title="BREEAM Sustainable Engineering">
+            <img src="assets/images/client-logo-4.webp" alt="BREEAM Outstanding">
+          </div>
+          <div class="partner-logo-item" title="International Property Awards">
+            <img src="assets/images/client-logo-5.webp" alt="International Property Awards 2025">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 8: PRIVATE VIEWING & INSPECTION BANNER
+         ========================================================================== -->
+    <section class="section-booking-banner" style="background-image: url('assets/images/hero-slide-2.webp');">
+      <div class="container">
+        <div class="booking-banner-inner">
+          <div class="booking-text-side">
+            <span class="section-subtitle">CONFIDENTIAL VIEWING</span>
+            <h2>Book A Private Residence Tour</h2>
+            <p>Direct chauffeur pick-up, private security clearance, and one-on-one consultation with our Lead Architect.</p>
+          </div>
+          <div>
+            <a href="404.html" class="btn-solid-copper">SCHEDULE PRIVATE SHOWING</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SECTION 13: FOOTER (COLUMN STAGGER & LINE REVEAL, ENQUIRY FORM & SOCIAL LINKS)
+       ========================================================================== -->
+  <footer id="qodef-page-footer" class="site-footer">
+    <div class="container">
+      <div class="footer-reveal-line" id="footer-reveal-line"></div>
+      
+      <div class="footer-top-grid">
+        <div class="footer-col stagger-item">
+          <img src="assets/images/stackly-logo-light.webp" alt="Stackly Real Estate" class="footer-brand-logo">
+          <p>Stackly embodies the pinnacle of architectural discretion and residential artistry, curating premier luxury properties and bespoke living spaces.</p>
+          <div style="color:#aaa; font-size:0.85rem; margin-top:1.5rem; line-height:1.6;">
+            <p style="margin-bottom:0.5rem;"><strong style="color:var(--color-primary);">Address:</strong> MMR COMPLEX, CHINNA THIRUPATHI, NEAR CHINNA MUNIYAPPAN KOVIL, SALEM - 636 003</p>
+            <p style="margin-bottom:0.5rem;"><strong style="color:var(--color-primary);">Phone:</strong> <a href="tel:+919090909090" style="color:inherit; text-decoration:none;">+91 90909 09090</a></p>
+            <p style="margin-bottom:0.5rem;"><strong style="color:var(--color-primary);">Email:</strong> <a href="mailto:info@stackly.com" style="color:inherit; text-decoration:none;">info@stackly.com</a></p>
+          </div>
+          
+          <!-- Social Media Links -->
+          <div class="footer-social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.332 1.357-.053.211-.174.268-.401.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col stagger-item">
+          <h5>Residences</h5>
+          <div class="footer-links-list">
+            <a href="property.html">Villa Kensington 1</a>
+            <a href="property.html">The Royal Sky Penthouse</a>
+            <a href="property.html">Palace Garden Duplex</a>
+            <a href="property.html">The Mews Villa Residence</a>
+            <a href="property.html">Floor Specifications</a>
+          </div>
+        </div>
+
+        <div class="footer-col stagger-item">
+          <h5>Useful Links</h5>
+          <div class="footer-links-list">
+            <a href="index.html">Home</a>
+            <a href="pages.html">Pages</a>
+            <a href="about-us.html">About Us</a>
+            <a href="property.html">Property</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="footer-col stagger-item">
+          <h5>Enquire & Register</h5>
+          <p>Subscribe to our confidential private dossier registry for off-market releases.</p>
+          <form class="footer-enquiry-form" novalidate>
+            <input type="email" placeholder="client@domain.com">
+            <button type="submit">SUBMIT</button>
+          </form>
+          <a href="404.html" class="btn-solid-copper" style="margin-top:1.5rem; display:inline-block; width:100%; text-align:center;">BOOK CONSULTATION</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Stackly Luxury Property Group. All rights reserved.</div>
+        <div>
+          <a href="pages.html">Privacy Policy</a> &nbsp;|&nbsp; 
+          <a href="pages.html">Terms of Acquisition</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <div id="qodef-back-to-top" aria-label="Back to Top">
+    <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/property.js"></script>
+</body>
+</html>

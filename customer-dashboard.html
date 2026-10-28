@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Client Portal - Kensington Residences</title>
+  <link rel="icon" type="image/webp" href="assets/images/stackly-logo-light.webp">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div class="dash-sidebar-overlay" id="dash-sidebar-overlay"></div>
+
+  <!-- ==========================================================================
+       SIDEBAR NAVIGATION (FIXED ON DESKTOP & MOBILE DRAWER)
+       ========================================================================== -->
+  <aside class="dash-sidebar" aria-label="Client Navigation">
+    <div class="dash-sidebar-header">
+      <a href="index.html" class="dash-sidebar-logo-link" aria-label="Stackly Home">
+        <img src="assets/images/stackly-logo-light.webp" alt="Stackly Portal" class="dash-sidebar-logo">
+      </a>
+      <button type="button" class="dash-sidebar-close" id="dash-sidebar-close" aria-label="Close Side Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Scrollable Navigation Content (Smooth Separate Page Views) -->
+    <div class="dash-sidebar-scroll">
+      <!-- Section 1: Patron Suite -->
+      <nav class="dash-nav-group">
+        <div class="dash-nav-title">
+          <span>PATRON SUITE</span>
+          <span class="dash-group-badge">RESIDENCE</span>
+        </div>
+        <a href="#my-portfolio" class="dash-nav-item active" data-view="view-my-portfolio">
+          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <span>My Portfolio</span>
+        </a>
+        <a href="#saved-residences" class="dash-nav-item" data-view="view-saved-residences">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <span>Saved Units (3)</span>
+        </a>
+        <a href="#upcoming-tours" class="dash-nav-item" data-view="view-upcoming-tours">
+          <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+          <span>Private Tours</span>
+        </a>
+        <a href="#concierge-chat" class="dash-nav-item" data-view="view-concierge-chat">
+          <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+          <span>Concierge Chat</span>
+        </a>
+        <a href="#document-vault" class="dash-nav-item" data-view="view-document-vault">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+          <span>Document Vault</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Pinned User Profile Footer -->
+    <div class="dash-sidebar-footer">
+      <div class="user-profile-summary">
+        <img src="assets/images/client-avatar-1.webp" alt="Client Patron" class="user-avatar">
+        <div class="user-meta">
+          <h6 id="client-user-name">Lord Alistair Sterling</h6>
+          <span id="client-user-email" style="display:block; font-size:0.72rem; color:#bbb; word-break:break-all;">patron@stackly-kensington.com</span>
+        </div>
+      </div>
+      <a href="login.html" title="Sign Out" class="dash-signout-btn" aria-label="Sign Out">⏻</a>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================== -->
+  <main class="dash-main">
+    <!-- Topbar (Fixed at top while scrolling) -->
+    <header class="dash-topbar">
+      <div class="dash-topbar-left">
+        <button type="button" class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Open Navigation Menu">☰</button>
+        <span class="topbar-portal-badge">PATRON SUITE • RESIDENCE PORTAL</span>
+      </div>
+
+      <div class="dash-topbar-right">
+        <!-- Profile Area (Entered Name & Mail ID Only) -->
+        <div class="topbar-user-profile-badge">
+          <div class="user-status-dot"></div>
+          <div class="topbar-user-details">
+            <span class="topbar-user-name" id="topbar-client-name">Lord Alistair Sterling</span>
+            <span class="topbar-user-email" id="topbar-user-email">patron@stackly-kensington.com</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Body Content with 5 Standalone Smooth Page Views -->
+    <div class="dash-content">
+
+      <!-- ====================================================================
+           VIEW 1: MY PORTFOLIO SUITE
+           ==================================================================== -->
+      <div class="dash-page-view active" id="view-my-portfolio">
+        <!-- Patron Welcome Hero -->
+        <div class="client-welcome-hero">
+          <span class="section-subtitle">PRIVATE REGISTRY SUITE</span>
+          <h1 style="font-size:2.4rem; margin-bottom:0.8rem; color:#fff;" id="client-hero-title">Welcome, Lord Alistair Sterling</h1>
+          <p style="color:#bbb; max-width:680px; margin-bottom:1.5rem;">
+            Your private client file is active. You have <strong>1 confirmed private tour</strong> scheduled for The Royal Sky Penthouse and <strong>3 shortlisted residences</strong> under confidential review.
+          </p>
+          <div style="display:flex; gap:1.5rem; flex-wrap:wrap;">
+            <button type="button" class="btn-solid-copper" data-view-switch="view-upcoming-tours" style="padding:0.8rem 1.8rem; cursor:pointer;">VIEW CONFIRMED TOUR</button>
+            <button type="button" class="btn-outline-white" data-view-switch="view-concierge-chat" style="padding:0.8rem 1.8rem; cursor:pointer;">MESSAGE CONCIERGE</button>
+          </div>
+        </div>
+
+        <!-- Authenticated Credentials Dossier Card -->
+        <div class="dash-card credential-card" style="border:1px solid rgba(194, 133, 98, 0.4); background: linear-gradient(135deg, #1a1a1a 0%, #141414 100%); margin-bottom:2rem; box-shadow:0 8px 24px rgba(0,0,0,0.35);">
+          <div class="dash-card-header" style="border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:1rem; margin-bottom:1.2rem;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="width:36px; height:36px; border-radius:50%; background:rgba(194,133,98,0.15); border:1px solid var(--color-primary); display:flex; align-items:center; justify-content:center; color:var(--color-primary);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </div>
+              <div>
+                <h3 style="margin:0; font-size:1.15rem; color:#ffffff;">Active Resident Account Credentials</h3>
+                <p style="color:#888; font-size:0.8rem; margin:2px 0 0 0;">Authentication telemetry & cipher verified for current portal session.</p>
+              </div>
+            </div>
+            <span class="status-badge active" style="background:rgba(74,222,128,0.15); color:#4ade80; border:1px solid rgba(74,222,128,0.3); font-size:0.75rem; letter-spacing:0.1em; padding:4px 10px;">SESSION ACTIVE</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:1.5rem; background:rgba(0,0,0,0.25); padding:1.2rem; border-radius:4px; border:1px solid rgba(255,255,255,0.05);">
+            <!-- Email ID -->
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <span style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-primary); font-weight:600;">ENTERED REGISTERED EMAIL</span>
+              <div style="display:flex; align-items:center; gap:8px; background:#222; padding:10px 14px; border:1px solid rgba(255,255,255,0.1); border-radius:2px;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <strong id="display-client-email" style="color:#ffffff; font-size:0.95rem; font-family:monospace; word-break:break-all;">patron@stackly-kensington.com</strong>
+              </div>
+            </div>
+
+            <!-- Password / Cipher -->
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <span style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-primary); font-weight:600;">ENTERED ACCESS CIPHER / PASSWORD</span>
+              <div style="display:flex; align-items:center; justify-content:space-between; background:#222; padding:10px 14px; border:1px solid rgba(255,255,255,0.1); border-radius:2px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  <span id="display-client-password" style="color:#ffffff; font-size:0.95rem; font-family:monospace; letter-spacing:0.1em;">LuxuryKensington2026!</span>
+                </div>
+                <button type="button" id="toggle-client-pass-btn" class="btn-table-action" style="padding:2px 8px; font-size:0.7rem; cursor:pointer;" title="Toggle Password Visibility">
+                  Hide
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="dash-stats-grid">
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">SAVED RESIDENCES</span>
+              <span class="stat-trend">3 Units</span>
+            </div>
+            <div class="stat-card-value">03</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">CONFIRMED TOURS</span>
+              <span class="stat-trend" style="color:#4ade80;">Nov 18, 2026</span>
+            </div>
+            <div class="stat-card-value">01</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">BLUEPRINTS IN VAULT</span>
+              <span class="stat-trend">Ready</span>
+            </div>
+            <div class="stat-card-value">04</div>
+          </div>
+
+          <div class="dash-stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">ASSIGNED ADVISOR</span>
+              <span class="stat-trend" style="color:#4ade80;">Active</span>
+            </div>
+            <div class="stat-card-value" style="font-size:1.8rem; margin-top:0.3rem;">J. Vance</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           VIEW 2: SAVED RESIDENCES SHORTLIST
+           ==================================================================== -->
+      <div class="dash-page-view" id="view-saved-residences">
+        <div class="dash-header-title">
+          <div>
+            <span class="section-subtitle">PRIVATE SHORTLIST</span>
+            <h1>Your Shortlisted Residences (3)</h1>
+            <p>Residences you have earmarked for confidential architectural inspection.</p>
+          </div>
+          <div>
+            <a href="property.html" class="btn-solid-copper" style="padding:0.6rem 1.4rem; font-size:0.75rem;">+ BROWSE MORE</a>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 2rem;">
+            <!-- Card 1 -->
+            <div style="background:#202020; border:1px solid rgba(255,255,255,0.08); overflow:hidden;">
+              <div style="height:190px; overflow:hidden; position:relative;">
+                <img src="assets/images/property-penthouse.webp" alt="Penthouse" style="width:100%; height:100%; object-fit:cover;">
+                <span class="villa-price-badge" style="font-size:1rem; padding:0.25rem 0.6rem;">£7,400,000</span>
+              </div>
+              <div style="padding:1.5rem;">
+                <h4 style="font-size:1.35rem; color:#fff; margin-bottom:0.4rem;">The Royal Sky Penthouse</h4>
+                <p style="font-size:0.8rem; color:#888; margin-bottom:1rem;">Duplex Panorama • 560 m² • Private Pool</p>
+                <div style="display:flex; justify-content:space-between; gap:0.5rem;">
+                  <button class="btn-table-action" style="flex:1;" onclick="showToast('Downloading Penthouse Dossier (PDF)...')">Blueprint</button>
+                  <button class="btn-table-action" style="color:#f87171;" onclick="this.closest('div[style*=background]').remove(); showToast('Removed from shortlist.');">Remove</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div style="background:#202020; border:1px solid rgba(255,255,255,0.08); overflow:hidden;">
+              <div style="height:190px; overflow:hidden; position:relative;">
+                <img src="assets/images/property-villa-1.webp" alt="Villa 1" style="width:100%; height:100%; object-fit:cover;">
+                <span class="villa-price-badge" style="font-size:1rem; padding:0.25rem 0.6rem;">£4,850,000</span>
+              </div>
+              <div style="padding:1.5rem;">
+                <h4 style="font-size:1.35rem; color:#fff; margin-bottom:0.4rem;">The Kensington Grand Villa</h4>
+                <p style="font-size:0.8rem; color:#888; margin-bottom:1rem;">Gated Residence • 420 m² • Zen Courtyard</p>
+                <div style="display:flex; justify-content:space-between; gap:0.5rem;">
+                  <button class="btn-table-action" style="flex:1;" onclick="showToast('Downloading Villa Dossier (PDF)...')">Blueprint</button>
+                  <button class="btn-table-action" style="color:#f87171;" onclick="this.closest('div[style*=background]').remove(); showToast('Removed from shortlist.');">Remove</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div style="background:#202020; border:1px solid rgba(255,255,255,0.08); overflow:hidden;">
+              <div style="height:190px; overflow:hidden; position:relative;">
+                <img src="assets/images/property-duplex.webp" alt="Duplex" style="width:100%; height:100%; object-fit:cover;">
+                <span class="villa-price-badge" style="font-size:1rem; padding:0.25rem 0.6rem;">£5,200,000</span>
+              </div>
+              <div style="padding:1.5rem;">
+                <h4 style="font-size:1.35rem; color:#fff; margin-bottom:0.4rem;">Palace Garden Duplex</h4>
+                <p style="font-size:0.8rem; color:#888; margin-bottom:1rem;">Double-Height Salon • 360 m² • 6.5m Ceiling</p>
+                <div style="display:flex; justify-content:space-between; gap:0.5rem;">
+                  <button class="btn-table-action" style="flex:1;" onclick="showToast('Downloading Duplex Dossier (PDF)...')">Blueprint</button>
+                  <button class="btn-table-action" style="color:#f87171;" onclick="this.closest('div[style*=background]').remove(); showToast('Removed from shortlist.');">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           VIEW 3: UPCOMING PRIVATE TOUR APPOINTMENT
+           ==================================================================== -->
+      <div class="dash-page-view" id="view-upcoming-tours">
+        <div class="dash-header-title">
+          <div>
+            <span class="section-subtitle">INSPECTION CALENDAR</span>
+            <h1>Upcoming Private Inspection</h1>
+            <p>Chauffeur arrival times, principal architect host, and biometric security clearances.</p>
+          </div>
+          <div>
+            <span class="status-badge approved" style="font-size:0.75rem; padding:6px 14px;">Confirmed Appointment</span>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div style="background:#222; border:1px solid rgba(194,133,98,0.3); padding:2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem;">
+            <div>
+              <span style="font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--color-primary); display:block; margin-bottom:0.4rem;">SCHEDULED PRIVATE SHOWING</span>
+              <h4 style="color:#fff; font-size:1.6rem; margin-bottom:0.5rem;">The Royal Sky Penthouse</h4>
+              <p style="color:#aaa; font-size:0.88rem; margin:0; line-height:1.6;">
+                <strong>Date:</strong> Wednesday, 18 November 2026 at 14:00 GMT<br>
+                <strong>Location:</strong> Private Gate Access, 14 Kensington Palace Gardens<br>
+                <strong>Host:</strong> Sir Julian Vance (Principal Architect)
+              </p>
+            </div>
+
+            <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+              <button class="btn-table-action" onclick="showToast('Reschedule request transmitted to Sir Julian Vance.')">Reschedule</button>
+              <button class="btn-solid-copper" onclick="showToast('Chauffeur routing map dispatched to your mobile.')">Chauffeur Routing</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           VIEW 4: CONCIERGE LIVE CHAT
+           ==================================================================== -->
+      <div class="dash-page-view" id="view-concierge-chat">
+        <div class="dash-header-title">
+          <div>
+            <span class="section-subtitle">24/7 PRIVATE LINE</span>
+            <h1>Private Concierge Desk</h1>
+            <p>Direct encrypted line to your personal Kensington advisory team.</p>
+          </div>
+          <div>
+            <span style="font-size:0.75rem; color:#4ade80; display:flex; align-items:center; gap:6px;">● Online & Available</span>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div class="client-concierge-chat">
+            <div class="chat-messages" id="chat-messages-container" style="max-height: 280px;">
+              <div class="chat-bubble advisor">
+                Good day, Lord Sterling. Welcome to your private Stackly portal. I have compiled the acoustic structural reports for the Sky Penthouse that you requested yesterday.
+              </div>
+              <div class="chat-bubble client">
+                Splendid, Julian. Will the private subterranean wine vault be ready for inspection during our Wednesday viewing?
+              </div>
+              <div class="chat-bubble advisor">
+                Yes, absolutely. The temperature-controlled cooling systems are fully operational and the sommelier tasting room has been prepared for your arrival.
+              </div>
+            </div>
+
+            <form class="chat-input-bar" id="concierge-chat-form" novalidate>
+              <input type="text" id="concierge-chat-input" placeholder="Compose confidential dispatch to Julian Vance...">
+              <button type="submit" class="btn-solid-copper" style="padding:0.6rem 1.4rem; font-size:0.75rem;">TRANSMIT</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           VIEW 5: DOCUMENT VAULT
+           ==================================================================== -->
+      <div class="dash-page-view" id="view-document-vault">
+        <div class="dash-header-title">
+          <div>
+            <span class="section-subtitle">SECURE REPOSITORY</span>
+            <h1>Private Document Vault</h1>
+            <p>Encrypted blueprints, deeds, acoustic certificates, and architectural schematics.</p>
+          </div>
+          <div>
+            <span class="status-badge approved" style="font-size:0.75rem; padding:6px 14px;">4 Files Verified</span>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:1.2rem;">
+            <div style="background:#222; padding:1.2rem; display:flex; justify-content:space-between; align-items:center; border:1px solid rgba(255,255,255,0.06);">
+              <div>
+                <strong style="color:#fff; display:block; font-size:0.9rem;">Sky Penthouse CAD Blueprints.dwg</strong>
+                <span style="font-size:0.75rem; color:#888;">Updated 14 Oct 2026 • 24.2 MB</span>
+              </div>
+              <button class="btn-table-action" onclick="showToast('Downloading CAD Schematic...')">Download</button>
+            </div>
+
+            <div style="background:#222; padding:1.2rem; display:flex; justify-content:space-between; align-items:center; border:1px solid rgba(255,255,255,0.06);">
+              <div>
+                <strong style="color:#fff; display:block; font-size:0.9rem;">Acoustic Isolation Test Report.pdf</strong>
+                <span style="font-size:0.75rem; color:#888;">Certified 0.08 Decibel Index • 3.8 MB</span>
+              </div>
+              <button class="btn-table-action" onclick="showToast('Downloading Acoustic Certificate...')">Download</button>
+            </div>
+
+            <div style="background:#222; padding:1.2rem; display:flex; justify-content:space-between; align-items:center; border:1px solid rgba(255,255,255,0.06);">
+              <div>
+                <strong style="color:#fff; display:block; font-size:0.9rem;">Deed & Share of Freehold Prospectus.pdf</strong>
+                <span style="font-size:0.75rem; color:#888;">Royal Borough Legal Dossier • 8.1 MB</span>
+              </div>
+              <button class="btn-table-action" onclick="showToast('Downloading Legal Prospectus...')">Download</button>
+            </div>
+
+            <div style="background:#222; padding:1.2rem; display:flex; justify-content:space-between; align-items:center; border:1px solid rgba(255,255,255,0.06);">
+              <div>
+                <strong style="color:#fff; display:block; font-size:0.9rem;">Bespoke Material Finishes Schedule.pdf</strong>
+                <span style="font-size:0.75rem; color:#888;">Italian Travertine & Oak Specs • 5.4 MB</span>
+              </div>
+              <button class="btn-table-action" onclick="showToast('Downloading Finishes Schedule...')">Download</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

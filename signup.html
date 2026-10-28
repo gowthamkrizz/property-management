@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Registry Application – Stackly Kensington</title>
+  <meta name="description" content="Apply for accreditation into the Stackly Private Residence Registry for off-market Kensington properties.">
+  <link rel="icon" type="image/webp" href="assets/images/stackly-logo-light.webp">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="auth-page-wrapper">
+
+  <div class="auth-split-layout">
+    <!-- Visual Side Panel -->
+    <div class="auth-visual-panel">
+      <div class="auth-visual-content">
+        <a href="index.html">
+          <img src="assets/images/stackly-logo-light.webp" alt="Stackly Logo" style="max-width:180px;">
+        </a>
+      </div>
+
+      <div class="auth-quote-box">
+        <blockquote>"Excellence is not an act, but a habit of continuous dedication to pure craft."</blockquote>
+        <div class="auth-quote-author">STACKLY PRIVATE CLIENT NETWORK • KENSINGTON RESIDENCES</div>
+      </div>
+
+      <div style="font-size:0.75rem; color:#888; letter-spacing:0.1em;">
+        PROTECTED UNDER STATUTORY NON-DISCLOSURE PROTOCOLS.
+      </div>
+    </div>
+
+    <!-- Auth Form Panel -->
+    <div class="auth-form-panel">
+      <div class="auth-card">
+        <a href="index.html" class="auth-back-home" title="Return to Kensington Homepage">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back To Home</span>
+        </a>
+
+        <div class="auth-card-header">
+          <a href="index.html">
+            <img src="assets/images/stackly-logo-light.webp" alt="Stackly" class="auth-card-logo">
+          </a>
+          <h2>Apply for Private Registry</h2>
+          <p>Gain confidential access to off-market Kensington penthouses, architectural blueprints, and concierge privileges.</p>
+        </div>
+
+        <form id="auth-signup-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reg-first">Given Name *</label>
+              <input type="text" id="reg-first" class="form-control" placeholder="Alistair">
+            </div>
+            <div class="form-group">
+              <label for="reg-last">Surname *</label>
+              <input type="text" id="reg-last" class="form-control" placeholder="Sterling">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-email">Confidential Email *</label>
+            <input type="email" id="reg-email" class="form-control" placeholder="a.sterling@private.co.uk">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reg-phone">Direct Mobile *</label>
+              <input type="tel" id="reg-phone" class="form-control" placeholder="+44 7911 123456">
+            </div>
+            <div class="form-group">
+              <label for="reg-type">Investor Classification</label>
+              <select id="reg-type" class="form-control">
+                <option>Accredited Private Collector</option>
+                <option>Single Family Office Principal</option>
+                <option>Prospective Resident Buyer</option>
+                <option>Corporate Advisory Representative</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-pass">Create Master Security Cipher *</label>
+            <input type="password" id="reg-pass" class="form-control" placeholder="At least 8 characters with symbols...">
+          </div>
+
+          <div class="form-check" style="margin-bottom:1.5rem;">
+            <input type="checkbox" id="reg-agree" checked>
+            <label for="reg-agree" style="font-size:0.78rem; text-transform:none; letter-spacing:0; color:#aaa;">
+              I agree to the <a href="pages.html" style="color:var(--color-primary);">Confidential Non-Disclosure Terms</a> and verification protocols.
+            </label>
+          </div>
+
+          <button type="submit" class="btn-solid-copper" style="width:100%;" id="btn-signup-submit">REGISTER FOR PRIVATE CLEARANCE</button>
+        </form>
+
+        <div style="margin-top:2rem; text-align:center; font-size:0.85rem; color:#888;">
+          Already have verified credentials? <a href="login.html" style="color:var(--color-primary); text-decoration:underline;">Enter Portal</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    const signupForm = document.getElementById('auth-signup-form');
+    signupForm.noValidate = true;
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function showSignupError(field, message) {
+      field.classList.add('is-invalid');
+      const group = field.closest('.form-group, .form-check');
+      if (group) group.classList.add('has-error');
+      let err = group ? group.querySelector('.field-error-msg') : null;
+      if (!err) {
+        err = document.createElement('span');
+        err.className = 'field-error-msg';
+        group.appendChild(err);
+      }
+      err.innerHTML = `
+        <span class="field-error-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </span>
+        <span class="field-error-text">${message}</span>
+      `;
+      err.style.display = 'inline-flex';
+
+      field.classList.remove('field-shaking');
+      void field.offsetWidth;
+      field.classList.add('field-shaking');
+    }
+
+    function clearSignupError(field) {
+      field.classList.remove('is-invalid');
+      const group = field.closest('.form-group, .form-check');
+      if (group) group.classList.remove('has-error');
+      const err = group ? group.querySelector('.field-error-msg') : null;
+      if (err) err.style.display = 'none';
+    }
+
+    ['reg-first', 'reg-last', 'reg-email', 'reg-phone', 'reg-pass', 'reg-agree'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', () => clearSignupError(el));
+        el.addEventListener('change', () => clearSignupError(el));
+      }
+    });
+
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
+      let firstInvalid = null;
+
+      const first = document.getElementById('reg-first');
+      if (!first.value.trim() || first.value.trim().length < 2) {
+        showSignupError(first, 'Please provide your given name (min 2 characters).');
+        isValid = false;
+        if (!firstInvalid) firstInvalid = first;
+      }
+
+      const last = document.getElementById('reg-last');
+      if (!last.value.trim() || last.value.trim().length < 2) {
+        showSignupError(last, 'Please provide your surname (min 2 characters).');
+        isValid = false;
+        if (!firstInvalid) firstInvalid = last;
+      }
+
+      const email = document.getElementById('reg-email');
+      if (!email.value.trim() || !emailRegex.test(email.value.trim())) {
+        showSignupError(email, 'Please enter a valid confidential email address.');
+        isValid = false;
+        if (!firstInvalid) firstInvalid = email;
+      }
+
+      const phone = document.getElementById('reg-phone');
+      const digits = phone.value.replace(/\D/g, '');
+      if (!phone.value.trim() || digits.length < 7) {
+        showSignupError(phone, 'Please enter a valid mobile number with country code.');
+        isValid = false;
+        if (!firstInvalid) firstInvalid = phone;
+      }
+
+      const pass = document.getElementById('reg-pass');
+      if (!pass.value || pass.value.length < 8) {
+        showSignupError(pass, 'Security cipher must be at least 8 characters.');
+        isValid = false;
+        if (!firstInvalid) firstInvalid = pass;
+      }
+
+      const agree = document.getElementById('reg-agree');
+      if (!agree.checked) {
+        showSignupError(agree, 'You must agree to the Non-Disclosure Terms.');
+        isValid = false;
+        if (!firstInvalid) firstInvalid = agree;
+      }
+
+      if (!isValid) {
+        if (firstInvalid) firstInvalid.focus();
+        showToast('Please verify the highlighted registration fields.');
+        return;
+      }
+
+      // Save registration profile
+      const registeredUser = {
+        name: `${first.value.trim()} ${last.value.trim()}`,
+        email: email.value.trim(),
+        phone: phone.value.trim(),
+        type: document.getElementById('reg-type') ? document.getElementById('reg-type').value : 'Accredited Private Collector',
+        password: pass.value
+      };
+      try {
+        localStorage.setItem('stackly_registered_user', JSON.stringify(registeredUser));
+      } catch (err) {
+        console.warn('Storage error', err);
+      }
+
+      const btn = document.getElementById('btn-signup-submit');
+      btn.textContent = 'REGISTRATION VERIFIED & GRANTED...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        showToast('Application verified! Redirecting to dossier...');
+        setTimeout(() => {
+          window.location.href = '404.html';
+        }, 500);
+      }, 450);
+    });
+  </script>
+</body>
+</html>
