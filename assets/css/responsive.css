@@ -54,14 +54,23 @@
 
   .qodef-header-logo-pkg,
   .qodef-header-logo-link {
-    flex-shrink: 1 !important;
+    flex-shrink: 0 !important;
     min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .qodef-header-logo-link a {
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .qodef-header-logo-link img,
   .header-logo {
-    max-height: 34px !important;
+    height: 46px !important;
+    max-height: 48px !important;
     width: auto !important;
+    max-width: 185px !important;
     object-fit: contain !important;
   }
   
@@ -487,6 +496,7 @@
 
   /* Forms & Form Rows */
   .form-row {
+    grid-template-columns: 1fr !important;
     flex-direction: column !important;
     gap: 1rem !important;
   }
@@ -661,8 +671,11 @@
 
   .qodef-header-logo-link img,
   .header-logo {
-    max-height: 30px !important;
-    max-width: 135px !important;
+    height: 42px !important;
+    max-height: 44px !important;
+    max-width: 165px !important;
+    width: auto !important;
+    object-fit: contain !important;
   }
 
   .qodef-header-widget-holder,

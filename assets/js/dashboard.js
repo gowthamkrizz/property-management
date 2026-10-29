@@ -223,6 +223,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Handle Logout buttons (Sidebar Menu & Footer)
+  document.querySelectorAll('.dash-nav-logout, .dash-signout-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      try {
+        localStorage.removeItem('stackly_auth_user');
+        sessionStorage.removeItem('stackly_auth_user');
+      } catch (err) {
+        console.warn('Storage cleanup error', err);
+      }
+      if (typeof showToast === 'function') {
+        showToast('Securely signing out...');
+      }
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 350);
+    });
+  });
+
   // Close on ESC key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' || e.key === 'Esc') {

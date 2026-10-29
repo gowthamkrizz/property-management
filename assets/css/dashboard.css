@@ -101,6 +101,7 @@
 
 .auth-back-home svg {
   color: var(--color-primary);
+  fill: currentColor;
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
@@ -464,6 +465,25 @@ body.sidebar-open {
   fill: currentColor;
   opacity: 0.8;
   flex-shrink: 0;
+}
+
+/* SIDEBAR LOGOUT ITEM */
+.dash-nav-item.dash-nav-logout {
+  margin-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1rem;
+  color: #c98888;
+}
+
+.dash-nav-item.dash-nav-logout:hover {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.12);
+  border-left-color: #ff6b6b;
+}
+
+.dash-nav-item.dash-nav-logout svg {
+  fill: currentColor;
+  opacity: 0.9;
 }
 
 /* PINNED SIDEBAR FOOTER */

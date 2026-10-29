@@ -227,13 +227,20 @@ button {
 }
 
 .qodef-button.qodef-layout--minimal svg polygon,
-.btn-kensington svg polygon {
+.btn-kensington svg polygon,
+.qodef-button.qodef-layout--minimal svg .kensington-icon-glyph,
+.btn-kensington svg .kensington-icon-glyph {
   transition: transform 0.5s cubic-bezier(.16, 1, .3, 1);
 }
 
 .qodef-button.qodef-layout--minimal:hover svg polygon,
 .btn-kensington:hover svg polygon {
   transform: translateX(5px);
+}
+
+.qodef-button.qodef-layout--minimal:hover svg .kensington-icon-glyph,
+.btn-kensington:hover svg .kensington-icon-glyph {
+  transform: translate(45.5px, 11px) scale(0.75);
 }
 
 /* SOLID COPPER BUTTON */
@@ -2476,6 +2483,7 @@ button {
 .btn-appointment-primary svg {
   width: 18px;
   height: 18px;
+  fill: currentColor;
   transition: transform 0.4s ease;
 }
 
@@ -2754,6 +2762,17 @@ button {
   cursor: not-allowed;
 }
 
+.btn-submit-visit svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.btn-submit-visit:hover svg {
+  transform: scale(1.15);
+}
+
 /* --------------------------------------------------------------------------
    10. CONTACT: Staggered Information Reveal, Phone, Email & Map Links
    -------------------------------------------------------------------------- */
@@ -2838,9 +2857,20 @@ button {
   transition: gap 0.3s ease;
 }
 
+.contact-card-link svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
 .contact-card-link:hover {
   gap: 12px;
   color: var(--color-primary-hover);
+}
+
+.contact-card-link:hover svg {
+  transform: scale(1.15);
 }
 
 /* --------------------------------------------------------------------------
@@ -2985,6 +3015,9 @@ button {
 }
 
 .useful-nav-action svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
   transition: transform 0.35s ease;
 }
 
@@ -3126,7 +3159,8 @@ button {
   box-shadow: 0 16px 36px rgba(194, 133, 98, 0.45);
 }
 
-.btn-circle-arrow {
+.btn-circle-arrow,
+.btn-circle-icon {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -3137,15 +3171,18 @@ button {
   transition: transform 0.4s ease, background 0.4s ease;
 }
 
-.btn-luxury:hover .btn-circle-arrow {
+.btn-luxury:hover .btn-circle-arrow,
+.btn-luxury:hover .btn-circle-icon {
   transform: translateX(6px);
   background: var(--color-primary);
   color: #ffffff;
 }
 
-.btn-circle-arrow svg {
-  width: 14px;
-  height: 14px;
+.btn-circle-arrow svg,
+.btn-circle-icon svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
 }
 
 /* Property Filter Tabs */
